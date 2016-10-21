@@ -7,8 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Suggestion extends Model
 {
     const KEY_DATA = 'data';
+    const KEY_ITEMS = 'items';
 
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'parent_id'];
+
+
+    public function getBaseSuggestion()
+    {
+        $response = $this->with('parent')
+            ->with('childs')
+            ->with('councelors')
+            ->whereNull('parent_id');
+        return [self::KEY_DATA => [self::KEY_ITEMS => $response->get()]];
+    }
 
     public function getSuggestion($suggestionId)
     {
@@ -16,7 +27,7 @@ class Suggestion extends Model
             ->with('childs')
             ->with('councelors')
             ->where('id', $suggestionId);
-        return [self::KEY_DATA => $response];
+        return [self::KEY_DATA => $response->get()];
     }
 
     public function parent()

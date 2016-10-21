@@ -14,6 +14,12 @@ class SuggestionController extends Controller
         $this->suggestion = $suggestion;
     }
 
+    public function getBaseSuggestion()
+    {
+        $response = $this->suggestion->getBaseSuggestion();
+        return response()->json($response);
+    }
+
     public function getSuggestion($suggestionId)
     {
         $response = $this->suggestion->getSuggestion($suggestionId);
