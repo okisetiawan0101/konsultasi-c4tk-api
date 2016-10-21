@@ -74,7 +74,6 @@ class Counselor extends Model
         $counselor->name = $data['name'];
         $counselor->nick_name = $data['nick_name'];
         $counselor->email = $data['email'];
-        $counselor->password = bcrypt($data['password']);
         $counselor->birth_date = $data['birth_date'];
         $counselor->birth_place = $data['birth_place'];
         $counselor->address = $data['address'];
