@@ -21,7 +21,8 @@ curl "http://tersebut.com/api/v1/users" \
 		"education_id": "1",
 		"marital_status_id": "1",
 		"sinch_id": "1234",
-		"facebook_id": "123123123"
+		"facebook_id": "123123123",
+		"avatar_id": "1"
 	}'\
 ```
 
@@ -69,8 +70,14 @@ curl "http://tersebut.com/api/v1/users" \
 			"id": "1",
 			"description": "Menikah"
 		},
+		"avatar": {
+			"id": "1",
+			"description": "sedih",
+			"url": "tersebut.com/assets/images/sedih.jpg"
+		},
 		"sinch_id": "1234",
-		"facebook_id": "123123123"
+		"facebook_id": "123123123",
+		"rating": "4.1"
 	}
 }
 ```
@@ -93,11 +100,11 @@ Parameter | Description
 Field | Data Type | Mandatory | Description
 --------- | ------- | -------- | -----------
 name | String | Yes | 
-nick name | String | Yes | 
+nick_name | String | Yes | 
 email | String | Yes | 
 password | String | Yes | 
-birth date | Date | Yes | YYYY-MM-DD
-birth place | String | Yes | 
+birth_date | Date | Yes | YYYY-MM-DD
+birth_place | String | Yes | 
 address | String | Yes | 
 village_id | String | Yes |
 gender_id | String | Yes | 
@@ -174,8 +181,14 @@ curl "http://tersebut.com/api/v1/users/login" \
 			"id": "1",
 			"description": "Menikah"
 		},
+		"avatar": {
+			"id": "1",
+			"description": "sedih",
+			"url": "tersebut.com/assets/images/sedih.jpg"
+		},
 		"sinch_id": "1234",
-		"facebook_id": "123123123"
+		"facebook_id": "123123123",
+		"rating": "4.1"
 	}
 }
 ```
@@ -265,8 +278,14 @@ curl "http://tersebut.com/api/v1/users/login-facebook" \
 			"id": "1",
 			"description": "Menikah"
 		},
+		"avatar": {
+			"id": "1",
+			"description": "sedih",
+			"url": "tersebut.com/assets/images/sedih.jpg"
+		},
 		"sinch_id": "1234",
-		"facebook_id": "123123123"
+		"facebook_id": "123123123",
+		"rating": "4.1"
 	}
 }
 ```
@@ -297,88 +316,6 @@ facebook_id | String | Yes |
 Field | Data Type | Description
 --------- | ------- | -----------
 Data | Object | Object User
-
-
-
-## View Profile
-
-
-```shell
-curl "http://tersebut.com/api/v1/users/<user_id>"
-  -H "Authorization: Bearer <access_token>"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-	"data" : {
-        "id": "1",
-		"name": "alfin",
-        "nick_name": "kupang",
-		"birth_date": "1990-01-01",
-		"birth_place": "Jakarta",
-		"address": "alamat 1",
-		"village": {
-			"id": "3174040006",
-			"description": "WIJAYA KUSUMA",
-			"district": {
-				"id": "3174040",
-				"description": "GROGOL PETAMBURAN",
-				"city": {
-					"id": "3174",
-					"description": "KOTA JAKARTA BARAT",
-					"province": {
-						"id": "31",
-						"description": "DKI JAKARTA"
-					}
-				}
-			}
-		},
-		"gender": {
-			"id": "1",
-			"description": "Male"
-		},
-		"occupation": {
-			"id": "1",
-			"description": "Pelajar"
-		},
-		"education": {
-			"id": "1",
-			"description": "S1"
-		},
-		"marital_status": {
-			"id": "1",
-			"description": "Menikah"
-		},
-		"sinch_id": "1234",
-		"facebook_id": "123123123"
-	}
-}
-```
-
-This endpoint retrieves all users.
-
-### HTTP Request
-
-`GET http://tersebut.com/api/v1/users`
-
-
-
-### Response
-
-Field | Data Type | Description
---------- | ------- | -----------
-Data | Object | Object User
-
-
-
-### Query Parameters
-
-Field | Data Type | Mandatory | Description
---------- | ------- | -------- | -----------
-user_id | Number | Yes |
-
 
 
 ## Get a Specific User
@@ -431,8 +368,14 @@ curl "http://tersebut.com/api/v1/users/<user_id>"
 			"id": "1",
 			"description": "Menikah"
 		},
+		"avatar": {
+			"id": "1",
+			"description": "sedih",
+			"url": "tersebut.com/assets/images/sedih.jpg"
+		},
 		"sinch_id": "1234",
-		"facebook_id": "123123123"
+		"facebook_id": "123123123",
+		"rating": "4.1"
 	}
 }
 ```
@@ -568,7 +511,13 @@ curl "http://tersebut.com/api/v1/users/<userId>/threads"
 					"marital_status": {
 						"id": "1",
 						"description": "Menikah"
-					}
+					},
+					"avatar": {
+						"id": "1",
+						"description": "sedih",
+						"url": "tersebut.com/assets/images/sedih.jpg"
+					},
+					"rating": "4.1"
 				},
 				"description": "Nilai saya jelek"
 			}
@@ -669,8 +618,14 @@ curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
 			"id": "1",
 			"description": "Menikah"
 		},
+		"avatar": {
+			"id": "1",
+			"description": "sedih",
+			"url": "tersebut.com/assets/images/sedih.jpg"
+		},
 		"sinch_id": "1234",
-		"facebook_id": "123123123"
+		"facebook_id": "123123123",
+		"rating": "4.1"
 	}
 }
 ```
@@ -695,11 +650,11 @@ user_id | The ID of the User
 Field | Data Type | Mandatory | Description
 --------- | ------- | -------- | -----------
 name | String | Yes | 
-nick name | String | Yes | 
+nick_name | String | Yes | 
 email | String | Yes | 
 password | String | Yes | 
-birth date | Date | Yes | YYYY-MM-DD
-birth place | String | Yes | 
+birth_date | Date | Yes | YYYY-MM-DD
+birth_place | String | Yes | 
 address | String | Yes | 
 village_id | String | Yes |
 gender_id | String | Yes | 

@@ -51,10 +51,16 @@ curl "http://tersebut.com/api/v1/counselors/<counselor_id>"
 			"id": "1",
 			"description": "Menikah"
 		},
+		"avatar": {
+			"id": "1",
+			"description": "sedih",
+			"url": "tersebut.com/assets/images/sedih.jpg"
+		},
 		"institution": {
 			"id": "1",
 			"name": "yesHEis"
-		}
+		},
+		"rating": "4.1"
 	}
 }
 ```
@@ -103,7 +109,8 @@ curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
 		"gender_id": "1",
 		"occupation_id": "1",
 		"education_id": "1",
-		"marital_status_id": "1"
+		"marital_status_id": "1",
+		"avatar_id": "1"
   	}'\
 ```
 
@@ -151,10 +158,16 @@ curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
 			"id": "1",
 			"description": "Menikah"
 		},
+		"avatar": {
+			"id": "1",
+			"description": "sedih",
+			"url": "tersebut.com/assets/images/sedih.jpg"
+		},
 		"institution": {
 			"id": "1",
 			"name": "yesHEis"
-		}
+		},
+		"rating": "1"
 	}
 }
 ```
@@ -179,21 +192,20 @@ counselor_id | The ID of the Counselor
 Field | Data Type | Mandatory | Description
 --------- | ------- | -------- | -----------
 name | String | Yes | 
-nick name | String | Yes | 
+nick_name | String | Yes | 
 email | String | Yes | 
 password | String | Yes | 
-birth date | Date | Yes | YYYY-MM-DD
-birth place | String | Yes | 
+birth_date | Date | Yes | YYYY-MM-DD
+birth_place | String | Yes | 
 address | String | Yes | 
 village_id | String | Yes |
 gender_id | String | Yes | 
 occupation_id | String | Yes |
 education_id | Integer | Yes | 
 marital_status_id | Integer | Yes | 
-religionId | Integer | Yes |
-avatarId | Integer | Yes |
+religion_id | Integer | Yes |
+avatar_id | Integer | Yes |
 profile | String | Yes |
-
 
 
 ### Response
