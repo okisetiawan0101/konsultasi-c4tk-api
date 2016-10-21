@@ -4,7 +4,7 @@
 ## Get Thread Info
 
 ```shell
-curl "http://c4tk.com/api/v1/threads/<threadId>"
+curl "http://c4tk.com/api/v1/threads/<thread_id>"
 ```
 
 > The above command returns JSON structured like this:
@@ -17,7 +17,7 @@ curl "http://c4tk.com/api/v1/threads/<threadId>"
 			"id": "1",
 			"description": "Cinta"
 		},
-		"consultationType": {
+		"consultation_type": {
 			"id": "1",
 			"name": "Private Thread",
 			"description": "Berkonsultasi dengan Konselor dengan private Thread"
@@ -25,9 +25,9 @@ curl "http://c4tk.com/api/v1/threads/<threadId>"
 		"user": {
 			"id": "1",
 			"name": "alfin",
-			"nickName": "kupang",
-			"birthDate": "1990-01-01",
-			"birthPlace": "Jakarta",
+			"nick_name": "kupang",
+			"birth_date": "1990-01-01",
+			"birth_place": "Jakarta",
 			"address": "alamat 1",
 			"village": {
 				"id": "3174040006",
@@ -65,9 +65,9 @@ curl "http://c4tk.com/api/v1/threads/<threadId>"
 		"counselor": {
 			"id": "1",
 			"name": "alfin",
-			"nickName": "kupang",
-			"birthDate": "1990-01-01",
-			"birthPlace": "Jakarta",
+			"nick_name": "kupang",
+			"birth_date": "1990-01-01",
+			"birth_place": "Jakarta",
 			"address": "alamat 1",
 			"village": {
 				"id": "3174040006",
@@ -97,7 +97,7 @@ curl "http://c4tk.com/api/v1/threads/<threadId>"
 				"id": "1",
 				"description": "S1"
 			},
-			"maritalStatus": {
+			"marital_status": {
 				"id": "1",
 				"description": "Menikah"
 			}
@@ -111,7 +111,7 @@ This endpoint retrieves all companions from specific mfi.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/threads/<threadId>`
+`GET http://c4tk.com/api/v1/threads/<thread_id>`
 
 
 
@@ -126,7 +126,7 @@ Data | Object | Thread Object
 
 Field | Data Type | Mandatory | Description
 --------- | ------- | -------- | -----------
-threadId | Number | Yes | 
+thread_id | Number | Yes | 
 
 
 ## Create Thread
@@ -136,10 +136,10 @@ threadId | Number | Yes |
 curl "http://c4tk.com/api/v1/threads" \
   -H "Content-Type: application/json" \
   -d '{
-        "categoryId": "1",
-		"consultationTypeId": "1",
-		"userId": "1",
-		"counselorId": "1",
+        "category_id": "1",
+		"consultation_type_id": "1",
+		"user_id": "1",
+		"counselor_id": "1",
 		"description": "Nilai saya jelek"
 	}'\
 ```
@@ -155,7 +155,7 @@ curl "http://c4tk.com/api/v1/threads" \
 			"id": "1",
 			"description": "Cinta"
 		},
-		"consultationType": {
+		"consultation_type": {
 			"id": "1",
 			"name": "Private Thread",
 			"description": "Berkonsultasi dengan Konselor dengan private Thread"
@@ -163,9 +163,9 @@ curl "http://c4tk.com/api/v1/threads" \
 		"user": {
 			"id": "1",
 			"name": "alfin",
-			"nickName": "kupang",
-			"birthDate": "1990-01-01",
-			"birthPlace": "Jakarta",
+			"nick_name": "kupang",
+			"birth_date": "1990-01-01",
+			"birth_place": "Jakarta",
 			"address": "alamat 1",
 			"village": {
 				"id": "3174040006",
@@ -195,7 +195,7 @@ curl "http://c4tk.com/api/v1/threads" \
 				"id": "1",
 				"description": "S1"
 			},
-			"maritalStatus": {
+			"marital_status": {
 				"id": "1",
 				"description": "Menikah"
 			}
@@ -203,9 +203,9 @@ curl "http://c4tk.com/api/v1/threads" \
 		"counselor": {
 			"id": "1",
 			"name": "alfin",
-			"nickName": "kupang",
-			"birthDate": "1990-01-01",
-			"birthPlace": "Jakarta",
+			"nick_name": "kupang",
+			"birth_date": "1990-01-01",
+			"birth_place": "Jakarta",
 			"address": "alamat 1",
 			"village": {
 				"id": "3174040006",
@@ -256,10 +256,10 @@ This endpoint to insert Thread.
 
 Field | Data Type | Mandatory | Description
 --------- | ------- | -------- | -----------
-categoryId | Number | Yes | 
-consultationTypeId | Number | Yes | 
-userId | Number | Yes | 
-counselorId | Number | Yes | 
+category_id | Number | Yes | 
+consultation_type_id | Number | Yes | 
+user_id | Number | Yes | 
+counselor_id | Number | Yes | 
 description | String | Yes | 
 
 
@@ -275,7 +275,7 @@ Data | Object | Object Thread
 
 
 ```shell
-curl -X PATCH "http://c4tk.com/api/v1/threads/<threadId>/close" 
+curl -X PATCH "http://c4tk.com/api/v1/threads/<thread_id>/close" 
 ```
 
 > The above command returns HTTP_NO_CONTENT (204):
@@ -285,14 +285,14 @@ This endpoint to close thread.
 
 ### HTTP Request
 
-`PATCH http://c4tk.com/api/v1/<threadId>/close`
+`PATCH http://c4tk.com/api/v1/<thread_id>/close`
 
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-threadId | 
+thread_id | 
 
 ### Response
 
@@ -304,7 +304,7 @@ HTTP_NO_CONTENT
 
 
 ```shell
-curl "http://c4tk.com/api/v1/threads/<threadId>/user-rating" 
+curl "http://c4tk.com/api/v1/threads/<thread_id>/user-rating" 
   -d '{
         "rating": "5"
 	}'\
@@ -314,7 +314,7 @@ curl "http://c4tk.com/api/v1/threads/<threadId>/user-rating"
 
 Parameter | Description
 --------- | -----------
-threadId | 
+thread_id | 
 
 
 ### Payload
@@ -329,7 +329,7 @@ rating | number | Yes |
 
 
 ```shell
-curl "http://c4tk.com/api/v1/threads/<threadId>/counselor-rating" 
+curl "http://c4tk.com/api/v1/threads/<thread_id>/counselor-rating" 
   -d '{
         "rating": "5"
 	}'\
@@ -339,7 +339,7 @@ curl "http://c4tk.com/api/v1/threads/<threadId>/counselor-rating"
 
 Parameter | Description
 --------- | -----------
-threadId | 
+thread_id | 
 
 
 ### Payload

@@ -12,7 +12,7 @@ includes:
   - user
   - counselor
   - thread
-  - chat
+  - suggestion
   - master
 
 search: true

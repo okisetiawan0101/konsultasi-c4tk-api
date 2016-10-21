@@ -228,7 +228,7 @@ items | Array | Array of Province Object
 ## Get All Cities
 
 ```shell
-curl "http://c4tk.com/api/v1/provinces/<provinceId>/cities"
+curl "http://c4tk.com/api/v1/provinces/<province_id>/cities"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -255,7 +255,7 @@ This endpoint retrieves all cities by province Id.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/provinces/<provinceId>/cities`
+`GET http://c4tk.com/api/v1/provinces/<province_id>/cities`
 
 
 ### Response
@@ -269,7 +269,7 @@ items | Array | Array of City Object
 
 Field | Data Type
 --------- | -------
-provinceId | The ID of the province
+province_id | The ID of the province
 
 
 ## Get All Districts
@@ -318,7 +318,7 @@ cityId | The ID of the City
 ## Get All Villages
 
 ```shell
-curl "http://c4tk.com/api/v1/districts/<districtId>/villages"
+curl "http://c4tk.com/api/v1/districts/<district_id>/villages"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -341,7 +341,7 @@ This endpoint retrieves all villages by district Id.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/districts/<districtId>/villages`
+`GET http://c4tk.com/api/v1/districts/<district_id>/villages`
 
 
 ### Response
@@ -355,7 +355,7 @@ items | Array | Array of Village Object
 
 Field | Data Type
 --------- | -------
-districtId | The ID of the District
+district_id | The ID of the District
 
 
 ## Get All Categories
@@ -373,7 +373,7 @@ curl "http://c4tk.com/api/v1/categories"
 			{
                 "id": "1",
                 "description": "Cinta",
-				"logoUrl": "http://c4tk.com/assets/images/cinta.jpg"
+				"logo_url": "http://c4tk.com/assets/images/cinta.jpg"
             }
 		]
 	}

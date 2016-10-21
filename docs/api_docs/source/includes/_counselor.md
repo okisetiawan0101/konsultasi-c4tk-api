@@ -4,7 +4,7 @@
 ## View Profile
 
 ```shell
-curl "http://c4tk.com/api/v1/counselors/<CounselorId>"
+curl "http://c4tk.com/api/v1/counselors/<counselor_id>"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -15,9 +15,9 @@ curl "http://c4tk.com/api/v1/counselors/<CounselorId>"
 	"data" : {
         "id": "1",
 		"name": "alfin",
-        "nickName": "kupang",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+        "nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
 		"village": {
 			"id": "3174040006",
@@ -75,7 +75,7 @@ Data | Object | Object Counselor
 
 Field | Data Type | Mandatory | Description
 --------- | ------- | -------- | -----------
-CounselorId | Number | Yes |
+counselor_id | Number | Yes |
 
 
 
@@ -84,22 +84,22 @@ CounselorId | Number | Yes |
 
 
 ```shell
-curl -X PUT "http://c4tk.com/api/v1/counselors/<CounselorId>" \
+curl -X PUT "http://c4tk.com/api/v1/counselors/<counselor_id>" \
   -H "Authorization: Bearer <access_token>" \
   -H "Content-Type: application/json" \ 
   -d '{
 		"name": "alfin",
-        "nickName": "kupang",
+        "nick_name": "kupang",
 		"email": "kupanglie@gmail.com",
 		"password": "password123",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
-		"villageId": "3174040006",
-		"genderId": "1",
-		"occupationId": "1",
-		"educationId": "1",
-		"maritalStatusId": "1"
+		"village_id": "3174040006",
+		"gender_id": "1",
+		"occupation_id": "1",
+		"education_id": "1",
+		"marital_status_id": "1"
   	}'\
 ```
 
@@ -111,9 +111,9 @@ curl -X PUT "http://c4tk.com/api/v1/counselors/<CounselorId>" \
 	"data" : {
 		"id": "1",
 		"name": "alfin",
-		"nickName": "kupang",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+		"nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
 		"village": {
 			"id": "3174040006",
@@ -155,14 +155,14 @@ This endpoint to update Counselor.
 
 ### HTTP Request
 
-`PUT http://c4tk.com/api/v1/counselors/<CounselorId>`
+`PUT http://c4tk.com/api/v1/counselors/<counselor_id>`
 
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-CounselorId | The ID of the Counselor
+counselor_id | The ID of the Counselor
 
 
 
@@ -177,11 +177,11 @@ password | String | Yes |
 birth date | Date | Yes | YYYY-MM-DD
 birth place | String | Yes | 
 address | String | Yes | 
-villageId | String | Yes |
-genderId | String | Yes | 
-occupationId | String | Yes |
-educationId | Integer | Yes | 
-maritalStatusId | Integer | Yes | 
+village_id | String | Yes |
+gender_id | String | Yes | 
+occupation_id | String | Yes |
+education_id | Integer | Yes | 
+marital_status_id | Integer | Yes | 
 religionId | Integer | Yes |
 avatarId | Integer | Yes |
 profile | String | Yes |

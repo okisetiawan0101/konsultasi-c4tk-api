@@ -9,17 +9,17 @@ curl "http://c4tk.com/api/v1/users" \
   -H "Content-Type: application/json" \
   -d '{
         "name": "alfin",
-        "nickName": "kupang",
+        "nick_name": "kupang",
 		"email": "kupanglie@gmail.com",
 		"password": "password123",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
-		"villageId": "3174040006",
-		"genderId": "1",
-		"occupationId": "1",
-		"educationId": "1",
-		"maritalStatusId": "1"
+		"village_id": "3174040006",
+		"gender_id": "1",
+		"occupation_id": "1",
+		"education_id": "1",
+		"marital_status_id": "1"
 	}'\
 ```
 
@@ -31,9 +31,9 @@ curl "http://c4tk.com/api/v1/users" \
 	"data" : {
         "id": "1",
 		"name": "alfin",
-        "nickName": "kupang",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+        "nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
 		"village": {
 			"id": "3174040006",
@@ -63,7 +63,7 @@ curl "http://c4tk.com/api/v1/users" \
 			"id": "1",
 			"description": "S1"
 		},
-		"maritalStatus": {
+		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
 		}
@@ -95,13 +95,13 @@ password | String | Yes |
 birth date | Date | Yes | YYYY-MM-DD
 birth place | String | Yes | 
 address | String | Yes | 
-villageId | String | Yes |
-genderId | String | Yes | 
-occupationId | String | Yes |
-educationId | Integer | Yes | 
-maritalStatusId | Integer | Yes | 
-religionId | Integer | Yes |
-avatarId | Integer | Yes |
+village_id | String | Yes |
+gender_id | String | Yes | 
+occupation_id | String | Yes |
+education_id | Integer | Yes | 
+marital_status_id | Integer | Yes | 
+religion_id | Integer | Yes |
+avatar_id | Integer | Yes |
 profile | String | Yes |
 
 
@@ -133,9 +133,9 @@ curl "http://c4tk.com/api/v1/users/login" \
 	"data" : {
         "id": "1",
 		"name": "alfin",
-        "nickName": "kupang",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+        "nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
 		"village": {
 			"id": "3174040006",
@@ -165,7 +165,7 @@ curl "http://c4tk.com/api/v1/users/login" \
 			"id": "1",
 			"description": "S1"
 		},
-		"maritalStatus": {
+		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
 		}
@@ -206,7 +206,7 @@ Data | Object | Object User
 
 
 ```shell
-curl "http://c4tk.com/api/v1/users/<userId>"
+curl "http://c4tk.com/api/v1/users/<user_id>"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -217,9 +217,9 @@ curl "http://c4tk.com/api/v1/users/<userId>"
 	"data" : {
         "id": "1",
 		"name": "alfin",
-        "nickName": "kupang",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+        "nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
 		"village": {
 			"id": "3174040006",
@@ -249,7 +249,7 @@ curl "http://c4tk.com/api/v1/users/<userId>"
 			"id": "1",
 			"description": "S1"
 		},
-		"maritalStatus": {
+		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
 		}
@@ -277,14 +277,14 @@ Data | Object | Object User
 
 Field | Data Type | Mandatory | Description
 --------- | ------- | -------- | -----------
-userId | Number | Yes |
+user_id | Number | Yes |
 
 
 
 ## Get a Specific User
 
 ```shell
-curl "http://c4tk.com/api/v1/users/<UserId>"
+curl "http://c4tk.com/api/v1/users/<user_id>"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -294,10 +294,10 @@ curl "http://c4tk.com/api/v1/users/<UserId>"
 {
 	"data" : {
 		"id": "1",
-		"name": "alfin"
-		"nickName": "kupang",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+		"name": "alfin",
+		"nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
 		"village": {
 			"id": "3174040006",
@@ -327,7 +327,7 @@ curl "http://c4tk.com/api/v1/users/<UserId>"
 			"id": "1",
 			"description": "S1"
 		},
-		"maritalStatus": {
+		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
 		}
@@ -340,13 +340,13 @@ This endpoint retrieves a specific User.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/users/<UserId>`
+`GET http://c4tk.com/api/v1/users/<user_id>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-UserId | The ID of the User to retrieve
+user_id | The ID of the User to retrieve
 
 
 ### Response
@@ -362,22 +362,22 @@ Data | Object | Object User
 
 
 ```shell
-curl -X PUT "http://c4tk.com/api/v1/users/<UserId>" \
+curl -X PUT "http://c4tk.com/api/v1/users/<user_id>" \
   -H "Authorization: Bearer <access_token>" \
   -H "Content-Type: application/json" \ 
   -d '{
 		"name": "alfin",
-        "nickName": "kupang",
+        "nick_name": "kupang",
 		"email": "kupanglie@gmail.com",
 		"password": "password123",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
-		"villageId": "3174040006",
-		"genderId": "1",
-		"occupationId": "1",
-		"educationId": "1",
-		"maritalStatusId": "1"
+		"village_id": "3174040006",
+		"gender_id": "1",
+		"occupation_id": "1",
+		"education_id": "1",
+		"marital_status_id": "1"
   	}'\
 ```
 
@@ -389,9 +389,9 @@ curl -X PUT "http://c4tk.com/api/v1/users/<UserId>" \
 	"data" : {
 		"id": "1",
 		"name": "alfin",
-		"nickName": "kupang",
-		"birthDate": "1990-01-01",
-		"birthPlace": "Jakarta",
+		"nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
 		"address": "alamat 1",
 		"village": {
 			"id": "3174040006",
@@ -421,7 +421,7 @@ curl -X PUT "http://c4tk.com/api/v1/users/<UserId>" \
 			"id": "1",
 			"description": "S1"
 		},
-		"maritalStatus": {
+		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
 		}
@@ -433,14 +433,14 @@ This endpoint to update User.
 
 ### HTTP Request
 
-`PUT http://c4tk.com/api/v1/users/<UserId>`
+`PUT http://c4tk.com/api/v1/users/<user_id>`
 
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-UserId | The ID of the User
+user_id | The ID of the User
 
 
 
@@ -455,13 +455,13 @@ password | String | Yes |
 birth date | Date | Yes | YYYY-MM-DD
 birth place | String | Yes | 
 address | String | Yes | 
-villageId | String | Yes |
-genderId | String | Yes | 
-occupationId | String | Yes |
-educationId | Integer | Yes | 
-maritalStatusId | Integer | Yes | 
-religionId | Integer | Yes |
-avatarId | Integer | Yes |
+village_id | String | Yes |
+gender_id | String | Yes | 
+occupation_id | String | Yes |
+education_id | Integer | Yes | 
+marital_status_id | Integer | Yes | 
+religion_id | Integer | Yes |
+avatar_id | Integer | Yes |
 profile | String | Yes |
 
 
@@ -477,7 +477,7 @@ Data | Object | Object User
 
 
 ```shell
-curl -X DELETE "http://c4tk.com/api/v1/users/<UserId>" \
+curl -X DELETE "http://c4tk.com/api/v1/users/<user_id>" \
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -489,13 +489,13 @@ This endpoint to delete mfi's companion.
 
 ### HTTP Request
 
-`DELETE http://c4tk.com/api/v1/users/<UserId>`
+`DELETE http://c4tk.com/api/v1/users/<user_id>`
 
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-UserId | The ID of the User
+user_id | The ID of the User
 
 
