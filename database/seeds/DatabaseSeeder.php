@@ -10,10 +10,15 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		$this->call(ProvincesTableSeeder::class);
-		$this->call(CitiesTableSeeder::class);
-        $this->call(DistrictsTableSeeder::class);
-        $this->call(VillagesTableSeeder::class);
+		if (env('APP_ENV') == 'production') {
+			$this->call(ProvincesTableSeeder::class);
+			$this->call(CitiesTableSeeder::class);
+			$this->call(DistrictsTableSeeder::class);
+			$this->call(VillagesTableSeeder::class);
+		} else {
+			$this->call(LocationTableSeederTesting::class);
+		}
+		
         $this->call(SuggestionSeeder::class);
         $this->call(InstitutionTableSeeder::class);
 		$this->call(CategoriesTableSeeder::class);
