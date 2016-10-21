@@ -206,6 +206,96 @@ Field | Data Type | Description
 Data | Object | Object User
 
 
+
+## Login with Facebook
+
+```shell
+curl "http://tersebut.com/api/v1/users/login-facebook" \
+  -H "Authorization: Bearer <access_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+		"facebookId": "123123123"
+	}'\
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data" : {
+        "id": "1",
+		"name": "alfin",
+        "nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
+		"address": "alamat 1",
+		"village": {
+			"id": "3174040006",
+			"description": "WIJAYA KUSUMA",
+			"district": {
+				"id": "3174040",
+				"description": "GROGOL PETAMBURAN",
+				"city": {
+					"id": "3174",
+					"description": "KOTA JAKARTA BARAT",
+					"province": {
+						"id": "31",
+						"description": "DKI JAKARTA"
+					}
+				}
+			}
+		},
+		"gender": {
+			"id": "1",
+			"description": "Male"
+		},
+		"occupation": {
+			"id": "1",
+			"description": "Pelajar"
+		},
+		"education": {
+			"id": "1",
+			"description": "S1"
+		},
+		"marital_status": {
+			"id": "1",
+			"description": "Menikah"
+		},
+		"sinch_id": "1234"
+	}
+}
+```
+
+This endpoint to insert User.
+
+### HTTP Request
+
+`POST http://tersebut.com/api/v1/users/login-facebook`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+
+
+### Payload
+
+Field | Data Type | Mandatory | Description
+--------- | ------- | -------- | -----------
+facebookId | String | Yes | 
+
+
+
+### Response
+
+Field | Data Type | Description
+--------- | ------- | -----------
+Data | Object | Object User
+
+
+
 ## View Profile
 
 
