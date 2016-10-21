@@ -35,7 +35,7 @@ class UserController extends Controller
                 "education_id" => "required|exists:educations,id",
                 "marital_status_id" => "required|exists:marital_statuses,id",
                 "sinch_id" => "required",
-                "facebook_id" => "required",
+                "facebook_id" => "required|unique:users,facebook_id",
                 "avatar_id" => "required|exists:avatars,id"
         ]);
 
@@ -87,7 +87,7 @@ class UserController extends Controller
                     'code' => Response::HTTP_BAD_REQUEST,
                     'message' => $validator->errors()->first()
                 ]
-            ]);
+            ],Response::HTTP_BAD_REQUEST);
         }
 
         $response = DB::transaction(function() use ($data){
@@ -148,23 +148,28 @@ class UserController extends Controller
                     'code' => Response::HTTP_BAD_REQUEST,
                     'message' => $validator->errors()->first()
                 ]
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $response = DB::transaction(function() use ($data,$id){
             $user = $this->user->updateUser($id, $data);
 
-            if(!$user){
-                return response()->json([
-                    self::KEY_ERROR => [
-                        'code' => Response::HTTP_NOT_FOUND,
-                        'message' => 'User not found'
-                    ]
-                ], Response::HTTP_NOT_FOUND);
+            if(!$user)
+            {
+                return null;
             }
 
             return $this->user->showUser($id);
         });
+
+        if(!$response){
+            return response()->json([
+                self::KEY_ERROR => [
+                    'code' => Response::HTTP_NOT_FOUND,
+                    'message' => 'User not found'
+                ]
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         return response()->json([
             self::KEY_DATA=>$response
@@ -198,7 +203,7 @@ class UserController extends Controller
                     'code' => Response::HTTP_BAD_REQUEST,
                     'message' => $validator->errors()->first()
                 ]
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $user = $this->user->login($data["email"], $data["password"]);
@@ -230,7 +235,7 @@ class UserController extends Controller
                     'code' => Response::HTTP_BAD_REQUEST,
                     'message' => $validator->errors()->first()
                 ]
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $user = $this->user->loginByFB($data["facebookId"]);
