@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
-class User extends Model
+class User extends Authenticatable
 {
     protected $hidden = ['created_at', 'updated_at',
                         "village_id",
@@ -141,6 +142,10 @@ class User extends Model
 
     public function login($email, $password)
     {
+        if(!(Auth::attempt(['email' => $email, 'password' => $password]))) {
+            return null;
+        }
+
         $user = $this->with("village.district.city.province")
                     ->with("gender")
                     ->with("occupation")
@@ -149,7 +154,6 @@ class User extends Model
                     ->with("avatar")
                     ->with("religion")
                     ->where('email', $email)
-                    ->where('password', bcrypt($password))
                     ->get();
 
         if(!$user) {
