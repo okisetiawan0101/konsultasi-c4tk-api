@@ -4,7 +4,7 @@
 ## Get All Education
 
 ```shell
-curl "http://c4tk.com/api/v1/educations"
+curl "http://tersebut.com/api/v1/educations"
 ```
 
 > The above command returns JSON structured like this:
@@ -26,7 +26,7 @@ This endpoint retrieves all educations.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/educations`
+`GET http://tersebut.com/api/v1/educations`
 
 
 
@@ -43,7 +43,7 @@ items | Array | Array of Object
 ## Get All Occupation
 
 ```shell
-curl "http://c4tk.com/api/v1/occupations"
+curl "http://tersebut.com/api/v1/occupations"
 ```
 
 > The above command returns JSON structured like this:
@@ -65,7 +65,7 @@ This endpoint retrieves all occupation.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/occupations`
+`GET http://tersebut.com/api/v1/occupations`
 
 
 
@@ -79,7 +79,7 @@ items | Array | Array of Object
 ## Get All Marital Status
 
 ```shell
-curl "http://c4tk.com/api/v1/marital-statuses"
+curl "http://tersebut.com/api/v1/marital-statuses"
 ```
 
 > The above command returns JSON structured like this:
@@ -101,7 +101,7 @@ This endpoint retrieves all marital status.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/marital-statuses`
+`GET http://tersebut.com/api/v1/marital-statuses`
 
 
 
@@ -116,7 +116,7 @@ items | Array | Array of Object
 ## Get All Gender
 
 ```shell
-curl "http://c4tk.com/api/v1/genders"
+curl "http://tersebut.com/api/v1/genders"
 ```
 
 > The above command returns JSON structured like this:
@@ -138,7 +138,7 @@ This endpoint retrieves all genders.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/genders`
+`GET http://tersebut.com/api/v1/genders`
 
 
 
@@ -153,7 +153,7 @@ items | Array | Array of Object
 ## Get All Avatars
 
 ```shell
-curl "http://c4tk.com/api/v1/avatars"
+curl "http://tersebut.com/api/v1/avatars"
 ```
 
 > The above command returns JSON structured like this:
@@ -165,7 +165,7 @@ curl "http://c4tk.com/api/v1/avatars"
 			{
                 "id": "1",
                 "description": "Pendiam",
-                "url": "http://c4tk.com/assets/images/avatar1.jpg"
+                "url": "http://tersebut.com/assets/images/avatar1.jpg"
             }
 		]
 	}
@@ -176,7 +176,7 @@ This endpoint retrieves all avatars.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/avatars`
+`GET http://tersebut.com/api/v1/avatars`
 
 
 
@@ -192,7 +192,7 @@ items | Array | Array of Object
 ## Get All Provinces
 
 ```shell
-curl "http://c4tk.com/api/v1/provinces"
+curl "http://tersebut.com/api/v1/provinces"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -215,7 +215,7 @@ This endpoint retrieves all provinces.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/provinces`
+`GET http://tersebut.com/api/v1/provinces`
 
 
 ### Response
@@ -228,7 +228,7 @@ items | Array | Array of Province Object
 ## Get All Cities
 
 ```shell
-curl "http://c4tk.com/api/v1/provinces/<province_id>/cities"
+curl "http://tersebut.com/api/v1/provinces/<province_id>/cities"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -255,7 +255,7 @@ This endpoint retrieves all cities by province Id.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/provinces/<province_id>/cities`
+`GET http://tersebut.com/api/v1/provinces/<province_id>/cities`
 
 
 ### Response
@@ -275,7 +275,7 @@ province_id | The ID of the province
 ## Get All Districts
 
 ```shell
-curl "http://c4tk.com/api/v1/cities/<cityId>/districts"
+curl "http://tersebut.com/api/v1/cities/<cityId>/districts"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -298,7 +298,7 @@ This endpoint retrieves all districts by city Id.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/cities/<cityId>/districts`
+`GET http://tersebut.com/api/v1/cities/<cityId>/districts`
 
 
 ### Response
@@ -318,7 +318,7 @@ cityId | The ID of the City
 ## Get All Villages
 
 ```shell
-curl "http://c4tk.com/api/v1/districts/<district_id>/villages"
+curl "http://tersebut.com/api/v1/districts/<district_id>/villages"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -341,7 +341,7 @@ This endpoint retrieves all villages by district Id.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/districts/<district_id>/villages`
+`GET http://tersebut.com/api/v1/districts/<district_id>/villages`
 
 
 ### Response
@@ -361,7 +361,7 @@ district_id | The ID of the District
 ## Get All Categories
 
 ```shell
-curl "http://c4tk.com/api/v1/categories"
+curl "http://tersebut.com/api/v1/categories"
 ```
 
 > The above command returns JSON structured like this:
@@ -373,7 +373,7 @@ curl "http://c4tk.com/api/v1/categories"
 			{
                 "id": "1",
                 "description": "Cinta",
-				"logo_url": "http://c4tk.com/assets/images/cinta.jpg"
+				"logo_url": "http://tersebut.com/assets/images/cinta.jpg"
             }
 		]
 	}
@@ -384,7 +384,7 @@ This endpoint retrieves all categories.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/categories`
+`GET http://tersebut.com/api/v1/categories`
 
 
 
@@ -399,7 +399,7 @@ items | Array | Array of Object
 ## Get All Consultation Types
 
 ```shell
-curl "http://c4tk.com/api/v1/consultation-types"
+curl "http://tersebut.com/api/v1/consultation-types"
 ```
 
 > The above command returns JSON structured like this:
@@ -422,7 +422,7 @@ This endpoint retrieves all consultation-types.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/consultation-types`
+`GET http://tersebut.com/api/v1/consultation-types`
 
 
 

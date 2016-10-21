@@ -4,7 +4,7 @@
 ## Get Thread Info
 
 ```shell
-curl "http://c4tk.com/api/v1/threads/<thread_id>"
+curl "http://tersebut.com/api/v1/threads/<thread_id>"
 ```
 
 > The above command returns JSON structured like this:
@@ -111,7 +111,7 @@ This endpoint retrieves all companions from specific mfi.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/threads/<thread_id>`
+`GET http://tersebut.com/api/v1/threads/<thread_id>`
 
 
 
@@ -133,7 +133,7 @@ thread_id | Number | Yes |
 
 
 ```shell
-curl "http://c4tk.com/api/v1/threads" \
+curl "http://tersebut.com/api/v1/threads" \
   -H "Content-Type: application/json" \
   -d '{
         "category_id": "1",
@@ -249,7 +249,7 @@ This endpoint to insert Thread.
 
 ### HTTP Request
 
-`POST http://c4tk.com/api/v1/threads`
+`POST http://tersebut.com/api/v1/threads`
 
 
 ### Payload
@@ -275,7 +275,7 @@ Data | Object | Object Thread
 
 
 ```shell
-curl -X PATCH "http://c4tk.com/api/v1/threads/<thread_id>/close" 
+curl -X PATCH "http://tersebut.com/api/v1/threads/<thread_id>/close" 
 ```
 
 > The above command returns HTTP_NO_CONTENT (204):
@@ -285,7 +285,7 @@ This endpoint to close thread.
 
 ### HTTP Request
 
-`PATCH http://c4tk.com/api/v1/<thread_id>/close`
+`PATCH http://tersebut.com/api/v1/<thread_id>/close`
 
 
 ### URL Parameters
@@ -304,7 +304,7 @@ HTTP_NO_CONTENT
 
 
 ```shell
-curl "http://c4tk.com/api/v1/threads/<thread_id>/user-rating" 
+curl "http://tersebut.com/api/v1/threads/<thread_id>/user-rating" 
   -d '{
         "rating": "5"
 	}'\
@@ -329,7 +329,7 @@ rating | number | Yes |
 
 
 ```shell
-curl "http://c4tk.com/api/v1/threads/<thread_id>/counselor-rating" 
+curl "http://tersebut.com/api/v1/threads/<thread_id>/counselor-rating" 
   -d '{
         "rating": "5"
 	}'\

@@ -4,7 +4,7 @@
 ## Registration
 
 ```shell
-curl "http://c4tk.com/api/v1/users" \
+curl "http://tersebut.com/api/v1/users" \
   -H "Authorization: Bearer <access_token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -75,7 +75,7 @@ This endpoint to insert User.
 
 ### HTTP Request
 
-`POST http://c4tk.com/api/v1/users`
+`POST http://tersebut.com/api/v1/users`
 
 
 ### URL Parameters
@@ -116,7 +116,7 @@ Data | Object | Object User
 ## Login
 
 ```shell
-curl "http://c4tk.com/api/v1/users/login" \
+curl "http://tersebut.com/api/v1/users/login" \
   -H "Authorization: Bearer <access_token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -177,7 +177,7 @@ This endpoint to insert User.
 
 ### HTTP Request
 
-`POST http://c4tk.com/api/v1/users/login`
+`POST http://tersebut.com/api/v1/users/login`
 
 
 ### URL Parameters
@@ -206,7 +206,7 @@ Data | Object | Object User
 
 
 ```shell
-curl "http://c4tk.com/api/v1/users/<user_id>"
+curl "http://tersebut.com/api/v1/users/<user_id>"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -261,7 +261,7 @@ This endpoint retrieves all users.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/users`
+`GET http://tersebut.com/api/v1/users`
 
 
 
@@ -284,7 +284,7 @@ user_id | Number | Yes |
 ## Get a Specific User
 
 ```shell
-curl "http://c4tk.com/api/v1/users/<user_id>"
+curl "http://tersebut.com/api/v1/users/<user_id>"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -340,7 +340,7 @@ This endpoint retrieves a specific User.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/users/<user_id>`
+`GET http://tersebut.com/api/v1/users/<user_id>`
 
 ### URL Parameters
 
@@ -362,7 +362,7 @@ Data | Object | Object User
 
 
 ```shell
-curl -X PUT "http://c4tk.com/api/v1/users/<user_id>" \
+curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
   -H "Authorization: Bearer <access_token>" \
   -H "Content-Type: application/json" \ 
   -d '{
@@ -433,7 +433,7 @@ This endpoint to update User.
 
 ### HTTP Request
 
-`PUT http://c4tk.com/api/v1/users/<user_id>`
+`PUT http://tersebut.com/api/v1/users/<user_id>`
 
 
 ### URL Parameters
@@ -477,7 +477,7 @@ Data | Object | Object User
 
 
 ```shell
-curl -X DELETE "http://c4tk.com/api/v1/users/<user_id>" \
+curl -X DELETE "http://tersebut.com/api/v1/users/<user_id>" \
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -489,7 +489,7 @@ This endpoint to delete mfi's companion.
 
 ### HTTP Request
 
-`DELETE http://c4tk.com/api/v1/users/<user_id>`
+`DELETE http://tersebut.com/api/v1/users/<user_id>`
 
 
 ### URL Parameters
