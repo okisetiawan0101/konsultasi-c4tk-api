@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Counselor extends Model
 {
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'password'];
 
     public function threads()
     {
