@@ -10,4 +10,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    const KEY_DATA = 'data';
+    const KEY_ITEM = 'items';
+    const KEY_ERROR = 'error';
 }

@@ -11,6 +11,21 @@ class AvatarsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('avatars')->delete();
+        DB::table('avatars')->insert([
+            [
+                'id' => 1,
+                'description' => 'testing',
+                "url" => "http://tersebut.com/assets/images/avatar1.jpg"
+            ], [
+                'id' => 2,
+                'description' => 'testing',
+                "url" => "http://tersebut.com/assets/images/avatar1.jpg"
+            ], [
+                'id' => 3,
+                'description' => 'testing',
+                "url" => "http://tersebut.com/assets/images/avatar1.jpg"
+            ]
+        ]);
     }
 }
