@@ -4,7 +4,7 @@
 ## Get Base Suggestion
 
 ```shell
-curl "http://c4tk.com/api/v1/suggestions/base"
+curl "http://tersebut.com/api/v1/suggestions/base"
 ```
 
 > The above command returns JSON structured like this:
@@ -28,7 +28,7 @@ This endpoint retrieves all companions from specific mfi.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/suggestions/base`
+`GET http://tersebut.com/api/v1/suggestions/base`
 
 
 
@@ -43,7 +43,7 @@ Items | Object | Suggestion Object
 ## Get Child Suggestion
 
 ```shell
-curl "http://c4tk.com/api/v1/suggestions/<suggestionId>"
+curl "http://tersebut.com/api/v1/suggestions/<suggestionId>"
 ```
 
 > The above command returns JSON structured like this:
@@ -121,7 +121,7 @@ This endpoint retrieves all companions from specific mfi.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/suggestions/<suggestionId>`
+`GET http://tersebut.com/api/v1/suggestions/<suggestionId>`
 
 
 

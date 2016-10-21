@@ -4,7 +4,7 @@
 ## View Profile
 
 ```shell
-curl "http://c4tk.com/api/v1/counselors/<counselor_id>"
+curl "http://tersebut.com/api/v1/counselors/<counselor_id>"
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -59,7 +59,7 @@ This endpoint retrieves all Counselors.
 
 ### HTTP Request
 
-`GET http://c4tk.com/api/v1/counselors`
+`GET http://tersebut.com/api/v1/counselors`
 
 
 
@@ -84,7 +84,7 @@ counselor_id | Number | Yes |
 
 
 ```shell
-curl -X PUT "http://c4tk.com/api/v1/counselors/<counselor_id>" \
+curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
   -H "Authorization: Bearer <access_token>" \
   -H "Content-Type: application/json" \ 
   -d '{
@@ -155,7 +155,7 @@ This endpoint to update Counselor.
 
 ### HTTP Request
 
-`PUT http://c4tk.com/api/v1/counselors/<counselor_id>`
+`PUT http://tersebut.com/api/v1/counselors/<counselor_id>`
 
 
 ### URL Parameters
