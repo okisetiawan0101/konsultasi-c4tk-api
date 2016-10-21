@@ -39,6 +39,10 @@ curl "http://tersebut.com/api/v1/counselors/<counselor_id>"
 			"id": "1",
 			"description": "Male"
 		},
+		"religion": {
+			"id": "1",
+			"description": "Kristen"
+		},
 		"occupation": {
 			"id": "1",
 			"description": "Pelajar"
@@ -60,7 +64,8 @@ curl "http://tersebut.com/api/v1/counselors/<counselor_id>"
 			"id": "1",
 			"name": "yesHEis"
 		},
-		"rating": "4.1"
+		"rating": "4.1",
+		"profile": "test"
 	}
 }
 ```
@@ -107,10 +112,12 @@ curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
 		"address": "alamat 1",
 		"village_id": "3174040006",
 		"gender_id": "1",
+		"religion_id": "1",
 		"occupation_id": "1",
 		"education_id": "1",
 		"marital_status_id": "1",
-		"avatar_id": "1"
+		"avatar_id": "1",
+		"profile": "test"
   	}'\
 ```
 
@@ -146,6 +153,10 @@ curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
 			"id": "1",
 			"description": "Male"
 		},
+		"religion": {
+			"id": "1",
+			"description": "Kristen"
+		},
 		"occupation": {
 			"id": "1",
 			"description": "Pelajar"
@@ -167,7 +178,8 @@ curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
 			"id": "1",
 			"name": "yesHEis"
 		},
-		"rating": "1"
+		"rating": "1",
+		"profile": "test"
 	}
 }
 ```
@@ -200,6 +212,7 @@ birth_place | String | Yes |
 address | String | Yes | 
 village_id | String | Yes |
 gender_id | String | Yes | 
+religion_id | String | Yes |
 occupation_id | String | Yes |
 education_id | Integer | Yes | 
 marital_status_id | Integer | Yes | 
