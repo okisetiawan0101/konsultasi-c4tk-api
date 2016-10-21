@@ -20,7 +20,7 @@ class CreateThreadUserRatingsTable extends Migration
                 ->references('id')
                 ->on('threads')
                 ->onDelete('cascade');
-            $table->integer('ratting');
+            $table->integer('rating');
             $table->timestamps();
         });
     }
