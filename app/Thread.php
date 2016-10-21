@@ -95,6 +95,7 @@ class Thread extends Model {
 		$thread->user_id = $data['user_id'];
 		$thread->counselor_id = $data['counselor_id'];
 		$thread->description = $data['description'];
+		$thread->is_done = 0;
 		$thread->save();
 
 		return $thread;

@@ -18,8 +18,18 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::resource('users', 'UserController', ['except' => [
-    'create', 'edit', 'index'
+	'create', 'edit', 'index'
 ]]);
+
+Route::resource('threads', 'ThreadController', ['only' => [
+	'store', 'show'
+]]);
+
+Route::patch('thread/{thread_id}/close','ThreadController@close');
+
+Route::patch('thread/{thread_id}/user-rating','ThreadController@giveUserRating');
+
+Route::patch('thread/{thread_id}/counselor-rating','ThreadController@giveCounselorRating');
 
 Route::post('/users/login', 'UserController@login');
 

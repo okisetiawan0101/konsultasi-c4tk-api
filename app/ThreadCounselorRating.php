@@ -13,11 +13,10 @@ class ThreadCounselorRating extends Model {
 	}
 
 
-
-	public function store(array $data)
+	public function store($id, array $data)
 	{
 		$threadCounselorRating = new ThreadCounselorRating();
-		$threadCounselorRating->thread_id = $data['thread_id'];
+		$threadCounselorRating->thread_id = $id;
 		$threadCounselorRating->rating = $data['rating'];
 		$threadCounselorRating->save();
 

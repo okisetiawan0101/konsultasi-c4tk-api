@@ -13,10 +13,10 @@ class ThreadUserRating extends Model {
 	}
 
 
-	public function store(array $data)
+	public function store($id, array $data)
 	{
 		$threadUserRating = new ThreadUserRating();
-		$threadUserRating->thread_id = $data['thread_id'];
+		$threadUserRating->thread_id = $id;
 		$threadUserRating->rating = $data['rating'];
 		$threadUserRating->save();
 
