@@ -20,7 +20,8 @@ curl "http://tersebut.com/api/v1/users" \
 		"occupation_id": "1",
 		"education_id": "1",
 		"marital_status_id": "1",
-		"sinch_id": "1234"
+		"sinch_id": "1234",
+		"facebook_id": "123123123"
 	}'\
 ```
 
@@ -68,7 +69,8 @@ curl "http://tersebut.com/api/v1/users" \
 			"id": "1",
 			"description": "Menikah"
 		},
-		"sinch_id": "1234"
+		"sinch_id": "1234",
+		"facebook_id": "123123123"
 	}
 }
 ```
@@ -106,7 +108,7 @@ religion_id | Integer | Yes |
 avatar_id | Integer | Yes |
 profile | String | Yes |
 sinch_id | String | Yes |
-
+facebook_id | String | Yes |
 
 
 ### Response
@@ -172,7 +174,8 @@ curl "http://tersebut.com/api/v1/users/login" \
 			"id": "1",
 			"description": "Menikah"
 		},
-		"sinch_id": "1234"
+		"sinch_id": "1234",
+		"facebook_id": "123123123"
 	}
 }
 ```
@@ -262,7 +265,8 @@ curl "http://tersebut.com/api/v1/users/login-facebook" \
 			"id": "1",
 			"description": "Menikah"
 		},
-		"sinch_id": "1234"
+		"sinch_id": "1234",
+		"facebook_id": "123123123"
 	}
 }
 ```
@@ -284,7 +288,7 @@ Parameter | Description
 
 Field | Data Type | Mandatory | Description
 --------- | ------- | -------- | -----------
-facebookId | String | Yes | 
+facebook_id | String | Yes | 
 
 
 
@@ -347,7 +351,8 @@ curl "http://tersebut.com/api/v1/users/<user_id>"
 			"id": "1",
 			"description": "Menikah"
 		},
-		"sinch_id": "1234"
+		"sinch_id": "1234",
+		"facebook_id": "123123123"
 	}
 }
 ```
@@ -426,7 +431,8 @@ curl "http://tersebut.com/api/v1/users/<user_id>"
 			"id": "1",
 			"description": "Menikah"
 		},
-		"sinch_id": "1234"
+		"sinch_id": "1234",
+		"facebook_id": "123123123"
 	}
 }
 ```
@@ -663,7 +669,8 @@ curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
 			"id": "1",
 			"description": "Menikah"
 		},
-		"sinch_id": "1234"
+		"sinch_id": "1234",
+		"facebook_id": "123123123"
 	}
 }
 ```
