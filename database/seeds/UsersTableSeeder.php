@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
                 "religion_id" => "1",
                 "avatar_id" => "1",
                 "profile" => "1",
-                "sinch_id" => "1",
+                "sinch_id" => "123123123",
                 "facebook_id" => "1"
             ]
         ]);
