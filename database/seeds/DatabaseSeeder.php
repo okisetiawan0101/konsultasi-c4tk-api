@@ -18,8 +18,7 @@ class DatabaseSeeder extends Seeder {
 		} else {
 			$this->call(LocationTableSeederTesting::class);
 		}
-		
-        $this->call(SuggestionSeeder::class);
+
         $this->call(InstitutionTableSeeder::class);
 		$this->call(CategoriesTableSeeder::class);
 		$this->call(ConsultationTypesTableSeeder::class);
@@ -30,5 +29,7 @@ class DatabaseSeeder extends Seeder {
         $this->call(OccupationsTableSeeder::class);
         $this->call(AvatarsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+		$this->call(CounselorsTableSeeder::class);
+		$this->call(SuggestionSeeder::class);
     }
 }

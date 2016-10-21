@@ -21,6 +21,8 @@ class CreateCounselorsTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->text('profile');
+            $table->date('birth_date');
+            $table->string('birth_place');
             $table->string('address');
             $table->char('village_id', 10);
             $table->foreign('village_id')

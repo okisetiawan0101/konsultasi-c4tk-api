@@ -15,7 +15,7 @@ class InstitutionTableSeeder extends Seeder
         DB::table('institutions')->insert([
             [
                 'id' => 1,
-                'name' => 'institution 1'
+                'name' => 'yesHEis'
             ], [
                 'id' => 2,
                 'name' => 'institution 2'

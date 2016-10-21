@@ -13,7 +13,7 @@ class CreateSuggestionCounselorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('suggestion_counselors', function (Blueprint $table) {
+        Schema::create('suggestion_counselor', function (Blueprint $table) {
             $table->unsignedInteger('suggestion_id');
             $table->foreign('suggestion_id')
                 ->references('id')
@@ -37,6 +37,6 @@ class CreateSuggestionCounselorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suggestion_counselors');
+        Schema::dropIfExists('suggestion_counselor');
     }
 }

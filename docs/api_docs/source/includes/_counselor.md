@@ -65,6 +65,7 @@ curl "http://tersebut.com/api/v1/counselors/<counselor_id>"
 			"name": "yesHEis"
 		},
 		"rating": "4.1",
+		"sinch_id": "123123",
 		"profile": "test"
 	}
 }
@@ -117,6 +118,7 @@ curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
 		"education_id": "1",
 		"marital_status_id": "1",
 		"avatar_id": "1",
+		"sinch_id": "123123",
 		"profile": "test"
   	}'\
 ```
@@ -179,6 +181,7 @@ curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
 			"name": "yesHEis"
 		},
 		"rating": "1",
+		"sinch_id": "123123",
 		"profile": "test"
 	}
 }
@@ -219,7 +222,7 @@ marital_status_id | Integer | Yes |
 religion_id | Integer | Yes |
 avatar_id | Integer | Yes |
 profile | String | Yes |
-
+sinch_id | String | Yes |
 
 ### Response
 

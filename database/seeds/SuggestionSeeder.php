@@ -5,12 +5,8 @@ use Illuminate\Support\Facades\DB;
 
 class SuggestionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+
+    private function seedSuggesstion()
     {
         DB::table('suggestions')->delete();
         DB::table('suggestions')->insert([
@@ -81,5 +77,31 @@ class SuggestionSeeder extends Seeder
                 "urgent_rating" => "5"
             ],
         ]);
+    }
+
+    private function seedSuggestionCounselor()
+    {
+        DB::table('suggestion_counselor')->delete();
+        DB::table('suggestion_counselor')->insert([
+            [
+                "suggestion_id" => 10,
+                "counselor_id" => 1
+            ],
+            [
+                "suggestion_id" => 11,
+                "counselor_id" => 2
+            ],
+        ]);
+    }
+
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $this->seedSuggesstion();
+        $this->seedSuggestionCounselor();
     }
 }
