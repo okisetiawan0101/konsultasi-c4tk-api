@@ -1,0 +1,2290 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the C4TK API! </p>
+
+          <h1 id="user">User</h1>
+
+<h2 id="registration">Registration</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/users"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+        "name": "alfin",
+        "nickName": "kupang",
+        "email": "kupanglie@gmail.com",
+        "password": "password123",
+        "birthDate": "1990-01-01",
+        "birthPlace": "Jakarta",
+        "address": "alamat 1",
+        "villageId": "3174040006",
+        "genderId": "1",
+        "occupationId": "1",
+        "educationId": "1",
+        "maritalStatusId": "1"
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint to insert User.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://c4tk.com/api/v1/users</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>nick name</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>birth date</td>
+<td>Date</td>
+<td>Yes</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>birth place</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>villageId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>genderId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>occupationId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>educationId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>maritalStatusId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>religionId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>avatarId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>profile</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object User</td>
+</tr>
+</tbody></table>
+
+<h2 id="login">Login</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/users/login"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+        "email": "kupanglie@gmail.com",
+        "password": "password123",
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint to insert User.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://c4tk.com/api/v1/users/login</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object User</td>
+</tr>
+</tbody></table>
+
+<h2 id="view-profile">View Profile</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/users/&lt;userId&gt;"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all users.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/users</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object User</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-specific-user">Get a Specific User</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/users/&lt;UserId&gt;"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="w">
+        </span><span class="s2">"nickName"</span><span class="err">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a specific User.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/users/&lt;UserId&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId</td>
+<td>The ID of the User to retrieve</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object User</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-user">Update User</h2>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"http://c4tk.com/api/v1/users/&lt;UserId&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
+  -d <span class="s1">'{
+        "name": "alfin",
+        "nickName": "kupang",
+        "email": "kupanglie@gmail.com",
+        "password": "password123",
+        "birthDate": "1990-01-01",
+        "birthPlace": "Jakarta",
+        "address": "alamat 1",
+        "villageId": "3174040006",
+        "genderId": "1",
+        "occupationId": "1",
+        "educationId": "1",
+        "maritalStatusId": "1"
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint to update User.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT http://c4tk.com/api/v1/users/&lt;UserId&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId</td>
+<td>The ID of the User</td>
+</tr>
+</tbody></table>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>nick name</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>birth date</td>
+<td>Date</td>
+<td>Yes</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>birth place</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>villageId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>genderId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>occupationId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>educationId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>maritalStatusId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>religionId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>avatarId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>profile</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object User</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-user">Delete User</h2>
+<pre class="highlight shell"><code>curl -X DELETE <span class="s2">"http://c4tk.com/api/v1/users/&lt;UserId&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTTP_NO_CONTENT</p>
+</blockquote>
+
+<p>This endpoint to delete mfi&rsquo;s companion.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE http://c4tk.com/api/v1/users/&lt;UserId&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>UserId</td>
+<td>The ID of the User</td>
+</tr>
+</tbody></table>
+
+          <h1 id="counselor">Counselor</h1>
+
+<h2 id="view-profile">View Profile</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/counselors/&lt;CounselorId&gt;"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all Counselors.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/counselors</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object Counselor</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CounselorId</td>
+<td>Number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="update-counselor">Update Counselor</h2>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"http://c4tk.com/api/v1/counselors/&lt;CounselorId&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
+  -d <span class="s1">'{
+        "name": "alfin",
+        "nickName": "kupang",
+        "email": "kupanglie@gmail.com",
+        "password": "password123",
+        "birthDate": "1990-01-01",
+        "birthPlace": "Jakarta",
+        "address": "alamat 1",
+        "villageId": "3174040006",
+        "genderId": "1",
+        "occupationId": "1",
+        "educationId": "1",
+        "maritalStatusId": "1"
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint to update Counselor.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT http://c4tk.com/api/v1/counselors/&lt;CounselorId&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CounselorId</td>
+<td>The ID of the Counselor</td>
+</tr>
+</tbody></table>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>nick name</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>birth date</td>
+<td>Date</td>
+<td>Yes</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>birth place</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>villageId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>genderId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>occupationId</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>educationId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>maritalStatusId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>religionId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>avatarId</td>
+<td>Integer</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>profile</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object Counselor</td>
+</tr>
+</tbody></table>
+
+          <h1 id="thread">Thread</h1>
+
+<h2 id="get-thread-info">Get Thread Info</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/threads/&lt;threadId&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49a14941-4e35-4cca-8b8c-d84ce4a6b941"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cinta"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"consultationType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Private Thread"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berkonsultasi dengan Konselor dengan private Thread"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"counselor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nilai saya jelek"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all companions from specific mfi.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/threads/&lt;threadId&gt;</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Thread Object</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>threadId</td>
+<td>Number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-thread">Create Thread</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/threads"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+        "categoryId": "1",
+        "consultationTypeId": "1",
+        "userId": "1",
+        "counselorId": "1",
+        "description": "Nilai saya jelek"
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49a14941-4e35-4cca-8b8c-d84ce4a6b941"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cinta"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"consultationType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Private Thread"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berkonsultasi dengan Konselor dengan private Thread"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"counselor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"nickName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"birthPlace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nilai saya jelek"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint to insert Thread.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://c4tk.com/api/v1/threads</code></p>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categoryId</td>
+<td>Number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>consultationTypeId</td>
+<td>Number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>userId</td>
+<td>Number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>counselorId</td>
+<td>Number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object Thread</td>
+</tr>
+</tbody></table>
+
+<h2 id="close">Close</h2>
+<pre class="highlight shell"><code>curl -X PATCH <span class="s2">"http://c4tk.com/api/v1/threads/&lt;threadId&gt;/close"</span> 
+</code></pre>
+
+<blockquote>
+<p>The above command returns HTTP_NO_CONTENT (204):</p>
+</blockquote>
+
+<p>This endpoint to close thread.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH http://c4tk.com/api/v1/&lt;threadId&gt;/close</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>threadId</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>HTTP_NO_CONTENT</p>
+
+<h2 id="give-user-rating">Give User Rating</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/threads/&lt;threadId&gt;/user-rating"</span> 
+  -d <span class="s1">'{
+        "rating": "5"
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>threadId</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>rating</td>
+<td>number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="give-counselor-rating">Give Counselor Rating</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/threads/&lt;threadId&gt;/counselor-rating"</span> 
+  -d <span class="s1">'{
+        "rating": "5"
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>threadId</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>rating</td>
+<td>number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="chat">Chat</h1>
+
+<h2 id="view-chat">View chat</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/threads/&lt;threadId&gt;/chats"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"itemsPerPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"totalItems"</span><span class="p">:</span><span class="w"> </span><span class="mi">27000</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nextLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/threads/&lt;threadId&gt;/chats?page=1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"previousLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/threads/&lt;threadId&gt;/chats?page=3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49a14941-4e35-4cca-8b8c-d84ce4a6b997"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"isCounselor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message 1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all companions from specific mfi.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/threads/&lt;threadId&gt;/chats</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>itemsPerPage</td>
+<td>Number</td>
+<td>Total items per page</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Number</td>
+<td>page of chats</td>
+</tr>
+<tr>
+<td>totalItems</td>
+<td>Number</td>
+<td>Total chats</td>
+</tr>
+<tr>
+<td>nextLink</td>
+<td>String</td>
+<td>Link to the next page</td>
+</tr>
+<tr>
+<td>previousLink</td>
+<td>String</td>
+<td>Link to the next page</td>
+</tr>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Companion Object</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>threadId</td>
+<td>Number</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>itemsPerPage</td>
+<td>Number</td>
+<td>No</td>
+<td>Default: 20</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Number</td>
+<td>No</td>
+<td>Default: 1</td>
+</tr>
+<tr>
+<td>lastView</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Default: first time</td>
+</tr>
+</tbody></table>
+
+<h2 id="insert">Insert</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/threads/&lt;threadId&gt;/chats"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+        "isCounselor": false,
+        "message": "message 1"
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49a14941-4e35-4cca-8b8c-d84ce4a6b997"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isCounselor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message 1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint to insert Chat.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://c4tk.com/api/v1/threads/&lt;threadId&gt;/chats</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>threadId</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>isCounselor</td>
+<td>Boolean</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object Chat</td>
+</tr>
+</tbody></table>
+
+          <h1 id="master">Master</h1>
+
+<h2 id="get-all-education">Get All Education</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/educations"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guru"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all educations.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/educations</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Object</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-occupation">Get All Occupation</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/occupations"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wirausaha"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all occupation.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/occupations</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Object</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-marital-status">Get All Marital Status</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/marital-statuses"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all marital status.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/marital-statuses</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Object</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-gender">Get All Gender</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/genders"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pria"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all genders.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/genders</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Object</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-avatars">Get All Avatars</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/avatars"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pendiam"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://c4tk.com/assets/images/avatar1.jpg"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all avatars.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/avatars</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Object</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-provinces">Get All Provinces</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/provinces"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all provinces.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/provinces</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Province Object</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-cities">Get All Cities</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/provinces/&lt;provinceId&gt;/cities"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3175"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA TIMUR"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all cities by province Id.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/provinces/&lt;provinceId&gt;/cities</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of City Object</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>provinceId</td>
+<td>The ID of the province</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-districts">Get All Districts</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/cities/&lt;cityId&gt;/districts"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all districts by city Id.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/cities/&lt;cityId&gt;/districts</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of District Object</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cityId</td>
+<td>The ID of the City</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-villages">Get All Villages</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/districts/&lt;districtId&gt;/villages"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all villages by district Id.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/districts/&lt;districtId&gt;/villages</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Village Object</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>districtId</td>
+<td>The ID of the District</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-categories">Get All Categories</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/categories"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cinta"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://c4tk.com/assets/images/cinta.jpg"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all categories.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/categories</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Object</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-consultation-types">Get All Consultation Types</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://c4tk.com/api/v1/consultation-types"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Private Chat"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berkonsultasi dengan Konselor dengan private chat"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all consultation-types.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://c4tk.com/api/v1/consultation-types</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>Array</td>
+<td>Array of Object</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
