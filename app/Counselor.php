@@ -15,7 +15,8 @@ class Counselor extends Model
         "religion_id",
         "sinch_id",
         "avatar_id",
-        "institution_id"];
+        "institution_id",
+        'password'];
 
     public function threads()
     {
