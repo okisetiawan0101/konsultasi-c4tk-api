@@ -17,12 +17,14 @@ curl "http://tersebut.com/api/v1/users" \
 		"address": "alamat 1",
 		"village_id": "3174040006",
 		"gender_id": "1",
+		"religion_id" "1",
 		"occupation_id": "1",
 		"education_id": "1",
 		"marital_status_id": "1",
 		"sinch_id": "1234",
 		"facebook_id": "123123123",
-		"avatar_id": "1"
+		"avatar_id": "1",
+		"profile": "test"
 	}'\
 ```
 
@@ -58,6 +60,10 @@ curl "http://tersebut.com/api/v1/users" \
 			"id": "1",
 			"description": "Male"
 		},
+		"religion": {
+			"id": "1",
+			"description": "Kristen"
+		},
 		"occupation": {
 			"id": "1",
 			"description": "Pelajar"
@@ -77,7 +83,8 @@ curl "http://tersebut.com/api/v1/users" \
 		},
 		"sinch_id": "1234",
 		"facebook_id": "123123123",
-		"rating": "4.1"
+		"rating": "4.1",
+		"profile": "test"
 	}
 }
 ```
@@ -169,6 +176,10 @@ curl "http://tersebut.com/api/v1/users/login" \
 			"id": "1",
 			"description": "Male"
 		},
+		"religion": {
+			"id": "1",
+			"description": "Kristen"
+		},
 		"occupation": {
 			"id": "1",
 			"description": "Pelajar"
@@ -188,7 +199,8 @@ curl "http://tersebut.com/api/v1/users/login" \
 		},
 		"sinch_id": "1234",
 		"facebook_id": "123123123",
-		"rating": "4.1"
+		"rating": "4.1",
+		"profile": "test"
 	}
 }
 ```
@@ -266,6 +278,10 @@ curl "http://tersebut.com/api/v1/users/login-facebook" \
 			"id": "1",
 			"description": "Male"
 		},
+		"religion": {
+			"id": "1",
+			"description": "Kristen"
+		},
 		"occupation": {
 			"id": "1",
 			"description": "Pelajar"
@@ -285,7 +301,8 @@ curl "http://tersebut.com/api/v1/users/login-facebook" \
 		},
 		"sinch_id": "1234",
 		"facebook_id": "123123123",
-		"rating": "4.1"
+		"rating": "4.1",
+		"profile": "test"
 	}
 }
 ```
@@ -356,6 +373,10 @@ curl "http://tersebut.com/api/v1/users/<user_id>"
 			"id": "1",
 			"description": "Male"
 		},
+		"religion": {
+			"id": "1",
+			"description": "Kristen"
+		},
 		"occupation": {
 			"id": "1",
 			"description": "Pelajar"
@@ -375,7 +396,8 @@ curl "http://tersebut.com/api/v1/users/<user_id>"
 		},
 		"sinch_id": "1234",
 		"facebook_id": "123123123",
-		"rating": "4.1"
+		"rating": "4.1",
+		"profile": "test"
 	}
 }
 ```
@@ -567,10 +589,13 @@ curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
 		"address": "alamat 1",
 		"village_id": "3174040006",
 		"gender_id": "1",
+		"religion_id": "1",
 		"occupation_id": "1",
 		"education_id": "1",
 		"marital_status_id": "1",
-		"sinch_id": "1234"
+		"sinch_id": "1234",
+		"facebook_id": "123123123",
+		"profile": "test"
   	}'\
 ```
 
@@ -606,6 +631,10 @@ curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
 			"id": "1",
 			"description": "Male"
 		},
+		"religion": {
+			"id": "1",
+			"description": "Kristen"
+		},
 		"occupation": {
 			"id": "1",
 			"description": "Pelajar"
@@ -625,7 +654,8 @@ curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
 		},
 		"sinch_id": "1234",
 		"facebook_id": "123123123",
-		"rating": "4.1"
+		"rating": "4.1",
+		"profile": "test"
 	}
 }
 ```
@@ -658,6 +688,7 @@ birth_place | String | Yes |
 address | String | Yes | 
 village_id | String | Yes |
 gender_id | String | Yes | 
+religion_id | String | Yes | 
 occupation_id | String | Yes |
 education_id | Integer | Yes | 
 marital_status_id | Integer | Yes | 
