@@ -15,6 +15,12 @@ class CreateThreadCounselorRatingsTable extends Migration
     {
         Schema::create('thread_counselor_ratings', function (Blueprint $table) {
             $table->increments('id');
+	        $table->unsignedInteger('thread_id');
+	        $table->foreign('thread_id')
+		        ->references('id')
+		        ->on('threads')
+		        ->onDelete('cascade');
+	        $table->integer('rating');
             $table->timestamps();
         });
     }

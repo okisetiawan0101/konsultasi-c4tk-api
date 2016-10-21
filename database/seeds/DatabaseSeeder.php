@@ -10,12 +10,14 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		if (env('APP_ENV') == 'production') {
+		if (env('APP_ENV') == 'production')
+		{
 			$this->call(ProvincesTableSeeder::class);
 			$this->call(CitiesTableSeeder::class);
 			$this->call(DistrictsTableSeeder::class);
 			$this->call(VillagesTableSeeder::class);
-		} else {
+		} else
+		{
 			$this->call(LocationTableSeederTesting::class);
 		}
 
@@ -26,10 +28,12 @@ class DatabaseSeeder extends Seeder {
 		$this->call(GendersTableSeeder::class);
 		$this->call(MaritalStatusesTableSeeder::class);
 		$this->call(ReliginosTableSeeder::class);
-        $this->call(OccupationsTableSeeder::class);
-        $this->call(AvatarsTableSeeder::class);
-        $this->call(UsersTableSeeder::class);
+		$this->call(OccupationsTableSeeder::class);
+		$this->call(AvatarsTableSeeder::class);
+		$this->call(UsersTableSeeder::class);
 		$this->call(CounselorsTableSeeder::class);
 		$this->call(SuggestionSeeder::class);
-    }
+		$this->call(ThreadTableSeeder::class);
+
+	}
 }
