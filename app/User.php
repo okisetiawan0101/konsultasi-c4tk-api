@@ -90,7 +90,6 @@ class User extends Model
         $user->name = $data['name'];
         $user->nick_name = $data['nick_name'];
         $user->email = $data['email'];
-        $user->password = $data['password'];
         $user->birth_date = $data['birth_date'];
         $user->birth_place = $data['birth_place'];
         $user->address = $data['address'];

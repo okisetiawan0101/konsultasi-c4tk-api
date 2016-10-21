@@ -31,6 +31,10 @@ Route::patch('thread/{thread_id}/user-rating','ThreadController@giveUserRating')
 
 Route::patch('thread/{thread_id}/counselor-rating','ThreadController@giveCounselorRating');
 
+Route::resource('counselors', 'CounselorController', ['only' => [
+    'show', 'update'
+]]);
+
 Route::post('/users/login', 'UserController@login');
 
 Route::post('/users/login-facebook', 'UserController@loginByFB');
