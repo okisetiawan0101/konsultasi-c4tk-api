@@ -21,6 +21,10 @@ Route::resource('users', 'UserController', ['except' => [
     'create', 'edit', 'index'
 ]]);
 
+Route::resource('counselors', 'CounselorController', ['only' => [
+    'show', 'update'
+]]);
+
 Route::post('/users/login', 'UserController@login');
 
 Route::post('/users/login-facebook', 'UserController@loginByFB');

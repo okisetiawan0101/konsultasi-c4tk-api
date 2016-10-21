@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Counselor extends Model
 {
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at',
+        "village_id",
+        "gender_id",
+        "occupation_id",
+        "education_id",
+        "marital_status_id",
+        "religion_id",
+        "sinch_id",
+        "avatar_id",
+        "institution_id"];
 
     public function threads()
     {
@@ -51,5 +60,54 @@ class Counselor extends Model
     public function institution()
     {
         return $this->belongsTo(Institution::class);
+    }
+
+    public function updateCounselor($counselorId, array $data)
+    {
+        $counselor = $this->find($counselorId);
+
+        if(!$counselor) {
+            return null;
+        }
+
+        $counselor->name = $data['name'];
+        $counselor->nick_name = $data['nick_name'];
+        $counselor->email = $data['email'];
+        $counselor->password = bcrypt($data['password']);
+        $counselor->birth_date = $data['birth_date'];
+        $counselor->birth_place = $data['birth_place'];
+        $counselor->address = $data['address'];
+        $counselor->village_id = $data['village_id'];
+        $counselor->gender_id = $data['gender_id'];
+        $counselor->occupation_id = $data['occupation_id'];
+        $counselor->education_id = $data['education_id'];
+        $counselor->marital_status_id = $data['marital_status_id'];
+        $counselor->sinch_id = $data['sinch_id'];
+        $counselor->avatar_id = $data['avatar_id'];
+        $counselor->religion_id = $data['religion_id'];
+        $counselor->institution_id = $data['institution_id'];
+        $this->profile = $data['profile'];
+        $counselor->save();
+
+        return $counselor;
+    }
+
+    public function showCounselor($counselorId)
+    {
+        $counselor = $this->with("village.district.city.province")
+            ->with("gender")
+            ->with("occupation")
+            ->with("education")
+            ->with("maritalStatus")
+            ->with("avatar")
+            ->with("religion")
+            ->with("institution")
+            ->find($counselorId);
+
+        if(!$counselor) {
+            return null;
+        }
+
+        return $counselor;
     }
 }
