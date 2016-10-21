@@ -15,6 +15,7 @@ class CreateCounselorsTable extends Migration
     {
         Schema::create('counselors', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('sinch_id');
             $table->string('name');
             $table->string('nick_name');
             $table->string('email');
@@ -56,6 +57,10 @@ class CreateCounselorsTable extends Migration
                 ->references('id')
                 ->on('avatars')
                 ->onDelete('cascade');
+            $table->unsignedInteger('institution_id')->nullable();
+            $table->foreign('institution_id')
+                ->references('id')
+                ->on('institutions');
             $table->timestamps();
         });
     }

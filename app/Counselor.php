@@ -47,4 +47,9 @@ class Counselor extends Model
     {
         return $this->belongsTo(Village::class);
     }
+
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class);
+    }
 }
