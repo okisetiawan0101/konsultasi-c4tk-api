@@ -580,6 +580,30 @@
 											"width": 144.99169921875,
 											"height": 13,
 											"autoResize": false
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAFX6KsRtBVd1Vw=",
+											"_parent": {
+												"$ref": "AAAAAAFX2JrqdJ/Vphs="
+											},
+											"model": {
+												"$ref": "AAAAAAFX6KsRgRVaTw4="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 693,
+											"top": 852,
+											"width": 144.99169921875,
+											"height": 13,
+											"autoResize": false
 										}
 									],
 									"visible": true,
@@ -594,7 +618,7 @@
 									"left": 688,
 									"top": 607,
 									"width": 154.99169921875,
-									"height": 248,
+									"height": 263,
 									"autoResize": false
 								}
 							],
@@ -6737,6 +6761,19 @@
 							"foreignKey": false,
 							"nullable": false,
 							"unique": false
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAFX6KsRgRVaTw4=",
+							"_parent": {
+								"$ref": "AAAAAAFX2JrqdJ/RxDg="
+							},
+							"name": "sinch_id",
+							"length": 0,
+							"primaryKey": false,
+							"foreignKey": false,
+							"nullable": false,
+							"unique": false
 						}
 					]
 				},
@@ -8285,7 +8322,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFX6APa2RRoTHA="
 							},
-							"name": "question",
+							"name": "description",
 							"length": 0,
 							"primaryKey": false,
 							"foreignKey": false,
