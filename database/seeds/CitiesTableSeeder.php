@@ -11,6 +11,11 @@ class CitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+	    DB::table('cities')->delete();
+	    $file = database_path() . "/seeds/cities.sql";
+	    /*
+		 * First method with DB::unprepared
+		 * */
+	    DB::unprepared(file_get_contents($file));
     }
 }
