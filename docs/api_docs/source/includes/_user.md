@@ -19,7 +19,8 @@ curl "http://tersebut.com/api/v1/users" \
 		"gender_id": "1",
 		"occupation_id": "1",
 		"education_id": "1",
-		"marital_status_id": "1"
+		"marital_status_id": "1",
+		"sinch_id": "1234"
 	}'\
 ```
 
@@ -66,7 +67,8 @@ curl "http://tersebut.com/api/v1/users" \
 		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
-		}
+		},
+		"sinch_id": "1234"
 	}
 }
 ```
@@ -103,6 +105,7 @@ marital_status_id | Integer | Yes |
 religion_id | Integer | Yes |
 avatar_id | Integer | Yes |
 profile | String | Yes |
+sinch_id | String | Yes |
 
 
 
@@ -168,7 +171,8 @@ curl "http://tersebut.com/api/v1/users/login" \
 		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
-		}
+		},
+		"sinch_id": "1234"
 	}
 }
 ```
@@ -252,7 +256,8 @@ curl "http://tersebut.com/api/v1/users/<user_id>"
 		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
-		}
+		},
+		"sinch_id": "1234"
 	}
 }
 ```
@@ -330,7 +335,8 @@ curl "http://tersebut.com/api/v1/users/<user_id>"
 		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
-		}
+		},
+		"sinch_id": "1234"
 	}
 }
 ```
@@ -377,7 +383,8 @@ curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
 		"gender_id": "1",
 		"occupation_id": "1",
 		"education_id": "1",
-		"marital_status_id": "1"
+		"marital_status_id": "1",
+		"sinch_id": "1234"
   	}'\
 ```
 
@@ -424,7 +431,8 @@ curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
 		"marital_status": {
 			"id": "1",
 			"description": "Menikah"
-		}
+		},
+		"sinch_id": "1234"
 	}
 }
 ```
@@ -463,6 +471,7 @@ marital_status_id | Integer | Yes |
 religion_id | Integer | Yes |
 avatar_id | Integer | Yes |
 profile | String | Yes |
+sinch_id | String | Yes |
 
 
 
