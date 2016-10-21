@@ -50,6 +50,10 @@ curl "http://tersebut.com/api/v1/counselors/<counselor_id>"
 		"maritalStatus": {
 			"id": "1",
 			"description": "Menikah"
+		},
+		"institution": {
+			"id": "1",
+			"name": "yesHEis"
 		}
 	}
 }
@@ -146,6 +150,10 @@ curl -X PUT "http://tersebut.com/api/v1/counselors/<counselor_id>" \
 		"maritalStatus": {
 			"id": "1",
 			"description": "Menikah"
+		},
+		"institution": {
+			"id": "1",
+			"name": "yesHEis"
 		}
 	}
 }

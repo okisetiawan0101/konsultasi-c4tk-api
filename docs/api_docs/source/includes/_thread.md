@@ -1,6 +1,8 @@
 
 # Thread
 
+
+
 ## Get Thread Info
 
 ```shell
@@ -107,7 +109,7 @@ curl "http://tersebut.com/api/v1/threads/<thread_id>"
 }
 ```
 
-This endpoint retrieves all companions from specific mfi.
+This endpoint retrieves thread info.
 
 ### HTTP Request
 

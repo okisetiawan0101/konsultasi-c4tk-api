@@ -363,6 +363,147 @@ Data | Object | Object User
 
 
 
+## Get User Threads
+
+```shell
+curl "http://tersebut.com/api/v1/users/<userId>/threads"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data" : {
+		"total": 50,
+		"per_page": 15,
+		"current_page": 1,
+		"last_page": 4,
+		"next_page_url": "http://tersebut.com/api/v1/users/<userId>/threads?page=2",
+		"prev_page_url": null,
+		"from": 1,
+		"to": 15,
+		"items": [
+			{
+				"id": "49a14941-4e35-4cca-8b8c-d84ce4a6b941",
+				"category": {
+					"id": "1",
+					"description": "Cinta"
+				},
+				"consultation_type": {
+					"id": "1",
+					"name": "Private Thread",
+					"description": "Berkonsultasi dengan Konselor dengan private Thread"
+				},
+				"user": {
+					"id": "1",
+					"name": "alfin",
+					"nick_name": "kupang",
+					"birth_date": "1990-01-01",
+					"birth_place": "Jakarta",
+					"address": "alamat 1",
+					"village": {
+						"id": "3174040006",
+						"description": "WIJAYA KUSUMA",
+						"district": {
+							"id": "3174040",
+							"description": "GROGOL PETAMBURAN",
+							"city": {
+								"id": "3174",
+								"description": "KOTA JAKARTA BARAT",
+								"province": {
+									"id": "31",
+									"description": "DKI JAKARTA"
+								}
+							}
+						}
+					},
+					"gender": {
+						"id": "1",
+						"description": "Male"
+					},
+					"occupation": {
+						"id": "1",
+						"description": "Pelajar"
+					},
+					"education": {
+						"id": "1",
+						"description": "S1"
+					},
+					"maritalStatus": {
+						"id": "1",
+						"description": "Menikah"
+					}
+				},
+				"counselor": {
+					"id": "1",
+					"name": "alfin",
+					"nick_name": "kupang",
+					"birth_date": "1990-01-01",
+					"birth_place": "Jakarta",
+					"address": "alamat 1",
+					"village": {
+						"id": "3174040006",
+						"description": "WIJAYA KUSUMA",
+						"district": {
+							"id": "3174040",
+							"description": "GROGOL PETAMBURAN",
+							"city": {
+								"id": "3174",
+								"description": "KOTA JAKARTA BARAT",
+								"province": {
+									"id": "31",
+									"description": "DKI JAKARTA"
+								}
+							}
+						}
+					},
+					"gender": {
+						"id": "1",
+						"description": "Male"
+					},
+					"occupation": {
+						"id": "1",
+						"description": "Pelajar"
+					},
+					"education": {
+						"id": "1",
+						"description": "S1"
+					},
+					"marital_status": {
+						"id": "1",
+						"description": "Menikah"
+					}
+				},
+				"description": "Nilai saya jelek"
+			}
+		]
+	}
+}
+```
+
+This endpoint retrieves all user's thread.
+
+### HTTP Request
+
+`GET http://tersebut.com/api/v1/users/<userId>/threads`
+
+
+
+### Response
+
+Field | Data Type | Description
+--------- | ------- | -----------
+items | Array of Object | Thread Objects
+
+
+### Query Parameters
+
+Field | Data Type | Mandatory | Description
+--------- | ------- | -------- | -----------
+userId | Number | Yes | 
+page | Number | No | default: 1
+
+
 
 ## Update User
 
@@ -494,7 +635,7 @@ curl -X DELETE "http://tersebut.com/api/v1/users/<user_id>" \
 > The above command returns HTTP_NO_CONTENT
 
 
-This endpoint to delete mfi's companion.
+This endpoint to delete user.
 
 ### HTTP Request
 
