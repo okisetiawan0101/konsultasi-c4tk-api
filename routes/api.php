@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::resource('users', 'UserController', ['except' => [
+    'create', 'edit', 'index'
+]]);
+
+Route::post('/users/login', 'UserController@login');
+
+Route::post('/users/login-facebook', 'UserController@loginByFB');

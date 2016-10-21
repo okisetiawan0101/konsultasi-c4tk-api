@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('facebook_id');
             $table->string('sinch_id');
             $table->string('name');
             $table->string('nick_name');
@@ -22,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('birth_date');
             $table->string('birth_place');
-            $table->text('profile');
+            $table->text('profile')->nullable();
             $table->string('address');
             $table->char('village_id', 10);
             $table->foreign('village_id')
