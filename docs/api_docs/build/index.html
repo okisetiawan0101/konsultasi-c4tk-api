@@ -131,7 +131,6 @@
         "name": "alfin",
         "nick_name": "kupang",
         "email": "kupanglie@gmail.com",
-        "password": "password123",
         "birth_date": "1990-01-01",
         "birth_place": "Jakarta",
         "address": "alamat 1",
@@ -876,7 +875,6 @@
         "name": "alfin",
         "nick_name": "kupang",
         "email": "kupanglie@gmail.com",
-        "password": "password123",
         "birth_date": "1990-01-01",
         "birth_place": "Jakarta",
         "address": "alamat 1",
@@ -996,12 +994,6 @@
 </tr>
 <tr>
 <td>email</td>
-<td>String</td>
-<td>Yes</td>
-<td></td>
-</tr>
-<tr>
-<td>password</td>
 <td>String</td>
 <td>Yes</td>
 <td></td>
@@ -1475,6 +1467,135 @@
 <td>Data</td>
 <td>Object</td>
 <td>Object Counselor</td>
+</tr>
+</tbody></table>
+
+<h2 id="login">Login</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://tersebut.com/api/v1/counselors/login"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+        "email": "kupanglie@gmail.com",
+        "password": "password123",
+    }'</span><span class="se">\</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alfin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nick_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kupang"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"birth_place"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alamat 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040006"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WIJAYA KUSUMA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174040"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GROGOL PETAMBURAN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3174"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA JAKARTA BARAT"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"province"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI JAKARTA"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"religion"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kristen"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pelajar"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"education"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"maritalStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menikah"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sedih"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tersebut.com/assets/images/sedih.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"institution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yesHEis"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sinch_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123123"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint to insert User.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://tersebut.com/api/v1/counselors/login</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="payload">Payload</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Data</td>
+<td>Object</td>
+<td>Object User</td>
 </tr>
 </tbody></table>
 

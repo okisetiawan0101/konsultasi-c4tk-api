@@ -229,3 +229,109 @@ sinch_id | String | Yes |
 Field | Data Type | Description
 --------- | ------- | -----------
 Data | Object | Object Counselor
+
+
+## Login
+
+```shell
+curl "http://tersebut.com/api/v1/counselors/login" \
+  -H "Authorization: Bearer <access_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+		"email": "kupanglie@gmail.com",
+		"password": "password123",
+	}'\
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+	"data" : {
+		"id": "1",
+		"name": "alfin",
+		"nick_name": "kupang",
+		"birth_date": "1990-01-01",
+		"birth_place": "Jakarta",
+		"address": "alamat 1",
+		"village": {
+			"id": "3174040006",
+			"description": "WIJAYA KUSUMA",
+			"district": {
+				"id": "3174040",
+				"description": "GROGOL PETAMBURAN",
+				"city": {
+					"id": "3174",
+					"description": "KOTA JAKARTA BARAT",
+					"province": {
+						"id": "31",
+						"description": "DKI JAKARTA"
+					}
+				}
+			}
+		},
+		"gender": {
+			"id": "1",
+			"description": "Male"
+		},
+		"religion": {
+			"id": "1",
+			"description": "Kristen"
+		},
+		"occupation": {
+			"id": "1",
+			"description": "Pelajar"
+		},
+		"education": {
+			"id": "1",
+			"description": "S1"
+		},
+		"maritalStatus": {
+			"id": "1",
+			"description": "Menikah"
+		},
+		"avatar": {
+			"id": "1",
+			"description": "sedih",
+			"url": "tersebut.com/assets/images/sedih.jpg"
+		},
+		"institution": {
+			"id": "1",
+			"name": "yesHEis"
+		},
+		"rating": "4.1",
+		"sinch_id": "123123",
+		"profile": "test"
+	}
+}
+```
+
+This endpoint to insert User.
+
+### HTTP Request
+
+`POST http://tersebut.com/api/v1/counselors/login`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+
+
+### Payload
+
+Field | Data Type | Mandatory | Description
+--------- | ------- | -------- | -----------
+email | String | Yes | 
+password | String | Yes | 
+
+
+
+### Response
+
+Field | Data Type | Description
+--------- | ------- | -----------
+Data | Object | Object User
+
