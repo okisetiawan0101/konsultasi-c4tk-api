@@ -15,7 +15,7 @@ class CreateSuggestionsTable extends Migration
     {
         Schema::create('suggestions', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('description');
+            $table->mediumText('description');
             $table->integer('parent_id')->nullable();
             $table->integer('urgent_rating');
             $table->timestamps();
