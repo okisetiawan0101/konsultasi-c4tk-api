@@ -87,6 +87,47 @@ class Thread extends Model {
 		return $thread;
 	}
 
+    public function getPaginateThreadsByUserId($userId)
+    {
+        $threads = $this
+            ->with('category')
+            ->with('consultationType')
+            ->with(['user' => function ($user)
+            {
+                $user->with(['village' => function ($village)
+                {
+                    $village->with(['district' => function ($district)
+                    {
+                        $district->with(['city' => function ($city)
+                        {
+                            $city->with('province');
+                        }]);
+                    }]);
+                }])->with('gender')
+                    ->with('occupation')
+                    ->with('education')
+                    ->with('maritalStatus');
+            }])
+            ->with(['counselor' => function ($counselor)
+            {
+                $counselor->with(['village' => function ($village)
+                {
+                    $village->with(['district' => function ($district)
+                    {
+                        $district->with(['city' => function ($city)
+                        {
+                            $city->with('province');
+                        }]);
+                    }]);
+                }]);
+            }])
+            ->where('is_done', 0)
+            ->where('user_id', $userId)
+            ->paginate(15);
+
+        return $threads;
+    }
+
 	public function storeThread(array $data)
 	{
 		$thread = new Thread();

@@ -41,6 +41,7 @@ Route::post('/users/login', 'UserController@login');
 Route::post('/users/login-facebook', 'UserController@loginByFB');
 
 Route::get('/suggestions/base', 'SuggestionController@getBaseSuggestion');
+
 Route::get('/suggestions/{suggestionId}', 'SuggestionController@getSuggestion');
 
 Route::get('/provinces', 'MasterController@showProvinces');
@@ -66,3 +67,5 @@ Route::get('/categories', 'MasterController@showCategories');
 Route::get('/consultation-types', 'MasterController@showConsultationTypes');
 
 Route::get('/institutions', 'MasterController@showInstitutions');
+
+Route::get('/users/{userId}/threads', 'ThreadController@getPaginateThreadsByUserId');
