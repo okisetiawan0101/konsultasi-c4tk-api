@@ -110,6 +110,8 @@ class Counselor extends Model
             return null;
         }
 
+        $counselor->rating = $this->getRating($counselor->id);
+
         return $counselor;
     }
 
@@ -136,12 +138,23 @@ class Counselor extends Model
             ->with("religion")
             ->with("institution")
             ->where('email', $email)
-            ->get();
+            ->first();
 
         if(!$counselor) {
             return null;
         }
 
+        $counselor->rating = $this->getRating($counselor->id);
+
         return $counselor;
+    }
+
+    private function getRating ($counselorId) {
+        $rating = DB::table("thread_counselor_ratings")
+            ->join('threads', 'threads.id', '=', 'thread_counselor_ratings.thread_id')
+            ->where('threads.counselor_id', $counselorId)
+            ->avg("rating");
+
+        return $rating;
     }
 }
