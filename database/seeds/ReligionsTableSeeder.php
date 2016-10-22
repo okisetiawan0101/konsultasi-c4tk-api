@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ReliginosTableSeeder extends Seeder {
+class ReligionsTableSeeder extends Seeder {
 	/**
 	 * Run the database seeds.
 	 *

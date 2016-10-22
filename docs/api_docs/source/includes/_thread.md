@@ -104,6 +104,11 @@ curl "http://tersebut.com/api/v1/threads/<thread_id>"
 				"description": "Menikah"
 			}
 		},
+		"suggestion": {
+			"id": "1",
+			"description": "Cinta",
+			"urgent_rating": "1"
+		},
 		"description": "Nilai saya jelek"
 	}
 }
@@ -142,6 +147,7 @@ curl "http://tersebut.com/api/v1/threads" \
 		"consultation_type_id": "1",
 		"user_id": "1",
 		"counselor_id": "1",
+		"suggestion_id": "1",
 		"description": "Nilai saya jelek"
 	}'\
 ```
@@ -241,6 +247,11 @@ curl "http://tersebut.com/api/v1/threads" \
 				"id": "1",
 				"description": "Menikah"
 			}
+		},
+		"suggestion": {
+			"id": "1",
+			"description": "Cinta",
+			"urgent_rating": "1"
 		},
 		"description": "Nilai saya jelek"
 	}

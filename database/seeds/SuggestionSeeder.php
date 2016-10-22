@@ -61,7 +61,7 @@ class SuggestionSeeder extends Seeder
             [
                 "id" => 9,
                 "description" => "Putus",
-                "parent_id" => 1,
+                "parent_id" => 5,
                 "urgent_rating" => "1"
             ],
             [
