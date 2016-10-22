@@ -15,7 +15,6 @@ class Counselor extends Model
         "education_id",
         "marital_status_id",
         "religion_id",
-        "sinch_id",
         "avatar_id",
         "institution_id",
         'password'];
