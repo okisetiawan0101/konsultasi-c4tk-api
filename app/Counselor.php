@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class Counselor extends Model
 {
@@ -103,6 +105,38 @@ class Counselor extends Model
             ->with("religion")
             ->with("institution")
             ->find($counselorId);
+
+        if(!$counselor) {
+            return null;
+        }
+
+        return $counselor;
+    }
+
+    public function login($email, $password)
+    {
+        $hashPassword = DB::table("counselors")->where("email",$email)->select("password")->first();
+
+        if(!$hashPassword)
+        {
+            return null;
+        }
+
+        if(!Hash::check($password, $hashPassword->password))
+        {
+            return null;
+        }
+
+        $counselor = $this->with("village.district.city.province")
+            ->with("gender")
+            ->with("occupation")
+            ->with("education")
+            ->with("maritalStatus")
+            ->with("avatar")
+            ->with("religion")
+            ->with("institution")
+            ->where('email', $email)
+            ->get();
 
         if(!$counselor) {
             return null;

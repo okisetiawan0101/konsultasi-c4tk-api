@@ -40,6 +40,14 @@ class CounselorController extends Controller
         return $validator;
     }
 
+    private function validatorLogin($data){
+        $validator = Validator::make($data, [
+            "email" => "required",
+            "password" => "required"
+        ]);
+
+        return $validator;
+    }
 
     public function show($id)
     {
@@ -112,5 +120,28 @@ class CounselorController extends Controller
         return response()->json([
             self::KEY_DATA=>$response
         ],Response::HTTP_OK);
+    }
+
+    public function login(Request $request)
+    {
+        $data = $request->only("email",
+            "password");
+
+        $validator = $this->validatorLogin($data);
+
+        if($validator->fails()){
+            return response()->json([
+                self::KEY_ERROR => [
+                    'code' => Response::HTTP_BAD_REQUEST,
+                    'message' => $validator->errors()->first()
+                ]
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $counselor = $this->counselor->login($data["email"], $data["password"]);
+
+        return response()->json([
+            self::KEY_DATA=>$counselor
+        ],Response::HTTP_CREATED);
     }
 }
