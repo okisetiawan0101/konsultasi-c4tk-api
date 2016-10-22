@@ -90,7 +90,8 @@ class ThreadController extends Controller {
 			"consultation_type_id",
 			"user_id",
 			"counselor_id",
-			"description"
+			"description",
+			"suggestion_id"
 		);
 
 		$validator = $this->validatorCreateThread($data);
@@ -198,12 +199,12 @@ class ThreadController extends Controller {
 		], Response::HTTP_NO_CONTENT);
 	}
 
-    public function getPaginateThreadsByUserId($userId)
-    {
-        $threads = $this->thread->getPaginateThreadsByUserId($userId);
+	public function getPaginateThreadsByUserId($userId)
+	{
+		$threads = $this->thread->getPaginateThreadsByUserId($userId);
 
-        return response()->json([
-            self::KEY_DATA=>$threads
-        ],Response::HTTP_OK);
-    }
+		return response()->json([
+			self::KEY_DATA => $threads
+		], Response::HTTP_OK);
+	}
 }
