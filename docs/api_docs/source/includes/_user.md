@@ -11,7 +11,6 @@ curl "http://tersebut.com/api/v1/users" \
         "name": "alfin",
         "nick_name": "kupang",
 		"email": "kupanglie@gmail.com",
-		"password": "password123",
 		"birth_date": "1990-01-01",
 		"birth_place": "Jakarta",
 		"address": "alamat 1",
@@ -583,7 +582,6 @@ curl -X PUT "http://tersebut.com/api/v1/users/<user_id>" \
 		"name": "alfin",
         "nick_name": "kupang",
 		"email": "kupanglie@gmail.com",
-		"password": "password123",
 		"birth_date": "1990-01-01",
 		"birth_place": "Jakarta",
 		"address": "alamat 1",
@@ -682,7 +680,6 @@ Field | Data Type | Mandatory | Description
 name | String | Yes | 
 nick_name | String | Yes | 
 email | String | Yes | 
-password | String | Yes | 
 birth_date | Date | Yes | YYYY-MM-DD
 birth_place | String | Yes | 
 address | String | Yes | 
