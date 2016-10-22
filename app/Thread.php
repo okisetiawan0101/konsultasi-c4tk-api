@@ -37,9 +37,9 @@ class Thread extends Model {
 		return $this->hasOne(ThreadUserRating::class);
 	}
 
-	public function chats()
+	public function suggestion()
 	{
-		return $this->hasMany(Chat::class);
+		return $this->belongsTo(Suggestion::class);
 	}
 
 	public function showThreads()
@@ -87,46 +87,47 @@ class Thread extends Model {
 		return $thread;
 	}
 
-    public function getPaginateThreadsByUserId($userId)
-    {
-        $threads = $this
-            ->with('category')
-            ->with('consultationType')
-            ->with(['user' => function ($user)
-            {
-                $user->with(['village' => function ($village)
-                {
-                    $village->with(['district' => function ($district)
-                    {
-                        $district->with(['city' => function ($city)
-                        {
-                            $city->with('province');
-                        }]);
-                    }]);
-                }])->with('gender')
-                    ->with('occupation')
-                    ->with('education')
-                    ->with('maritalStatus');
-            }])
-            ->with(['counselor' => function ($counselor)
-            {
-                $counselor->with(['village' => function ($village)
-                {
-                    $village->with(['district' => function ($district)
-                    {
-                        $district->with(['city' => function ($city)
-                        {
-                            $city->with('province');
-                        }]);
-                    }]);
-                }]);
-            }])
-            ->where('is_done', 0)
-            ->where('user_id', $userId)
-            ->paginate(15);
+	public function getPaginateThreadsByUserId($userId)
+	{
+		$threads = $this
+			->with('category')
+			->with('consultationType')
+			->with(['user' => function ($user)
+			{
+				$user->with(['village' => function ($village)
+				{
+					$village->with(['district' => function ($district)
+					{
+						$district->with(['city' => function ($city)
+						{
+							$city->with('province');
+						}]);
+					}]);
+				}])->with('gender')
+					->with('occupation')
+					->with('education')
+					->with('maritalStatus');
+			}])
+			->with(['counselor' => function ($counselor)
+			{
+				$counselor->with(['village' => function ($village)
+				{
+					$village->with(['district' => function ($district)
+					{
+						$district->with(['city' => function ($city)
+						{
+							$city->with('province');
+						}]);
+					}]);
+				}]);
+			}])
+			->with('suggestion')
+			->where('is_done', 0)
+			->where('user_id', $userId)
+			->paginate(15);
 
-        return $threads;
-    }
+		return $threads;
+	}
 
 	public function storeThread(array $data)
 	{
@@ -136,6 +137,7 @@ class Thread extends Model {
 		$thread->user_id = $data['user_id'];
 		$thread->counselor_id = $data['counselor_id'];
 		$thread->description = $data['description'];
+		$thread->suggestion_id = $data['suggestion_id'];
 		$thread->is_done = 0;
 		$thread->save();
 
