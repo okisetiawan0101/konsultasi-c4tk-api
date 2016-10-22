@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -137,6 +138,8 @@ class User extends Authenticatable
             return null;
         }
 
+        $user->rating = $this->getRating($userId);
+
         return $user;
     }
 
@@ -154,11 +157,13 @@ class User extends Authenticatable
                     ->with("avatar")
                     ->with("religion")
                     ->where('email', $email)
-                    ->get();
+                    ->first();
 
         if(!$user) {
             return null;
         }
+
+        $user->rating = $this->getRating($user->id);
 
         return $user;
     }
@@ -173,12 +178,23 @@ class User extends Authenticatable
                     ->with("avatar")
                     ->with("religion")
                     ->where('facebook_id', $facebookId)
-                    ->get();
+            ->first();
 
         if(!$user) {
             return null;
         }
 
+        $user->rating = $this->getRating($user->id);
+
         return $user;
+    }
+
+    private function getRating ($userId) {
+        $rating = DB::table("thread_user_ratings")
+                ->join('threads', 'threads.id', '=', 'thread_user_ratings.thread_id')
+                ->where('threads.user_id', $userId)
+                ->avg("rating");
+
+        return $rating;
     }
 }

@@ -229,16 +229,6 @@ class UserController extends Controller
 
         $user = $this->user->login($data["email"], $data["password"]);
 
-        if(!$user)
-        {
-            return response()->json([
-                self::KEY_ERROR => [
-                    'code' => Response::HTTP_NOT_FOUND,
-                    'message' => 'User not found'
-                ]
-            ], Response::HTTP_NOT_FOUND);
-        }
-
         return response()->json([
             self::KEY_DATA=>$user
         ],Response::HTTP_CREATED);
@@ -260,16 +250,6 @@ class UserController extends Controller
         }
 
         $user = $this->user->loginByFB($data["facebookId"]);
-
-        if(!$user)
-        {
-            return response()->json([
-                self::KEY_ERROR => [
-                    'code' => Response::HTTP_NOT_FOUND,
-                    'message' => 'User not found'
-                ]
-            ], Response::HTTP_NOT_FOUND);
-        }
 
         return response()->json([
             self::KEY_DATA=>$user

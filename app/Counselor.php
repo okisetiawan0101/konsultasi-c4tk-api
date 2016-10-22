@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class Counselor extends Model
 {
@@ -108,6 +110,51 @@ class Counselor extends Model
             return null;
         }
 
+        $counselor->rating = $this->getRating($counselor->id);
+
         return $counselor;
+    }
+
+    public function login($email, $password)
+    {
+        $hashPassword = DB::table("counselors")->where("email",$email)->select("password")->first();
+
+        if(!$hashPassword)
+        {
+            return null;
+        }
+
+        if(!Hash::check($password, $hashPassword->password))
+        {
+            return null;
+        }
+
+        $counselor = $this->with("village.district.city.province")
+            ->with("gender")
+            ->with("occupation")
+            ->with("education")
+            ->with("maritalStatus")
+            ->with("avatar")
+            ->with("religion")
+            ->with("institution")
+            ->where('email', $email)
+            ->first();
+
+        if(!$counselor) {
+            return null;
+        }
+
+        $counselor->rating = $this->getRating($counselor->id);
+
+        return $counselor;
+    }
+
+    private function getRating ($counselorId) {
+        $rating = DB::table("thread_counselor_ratings")
+            ->join('threads', 'threads.id', '=', 'thread_counselor_ratings.thread_id')
+            ->where('threads.counselor_id', $counselorId)
+            ->avg("rating");
+
+        return $rating;
     }
 }

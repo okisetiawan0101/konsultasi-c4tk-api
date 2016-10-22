@@ -38,6 +38,8 @@ Route::resource('counselors', 'CounselorController', ['only' => [
 
 Route::post('/users/login', 'UserController@login');
 
+Route::post('/counselors/login', 'CounselorController@login');
+
 Route::post('/users/login-facebook', 'UserController@loginByFB');
 
 Route::get('/suggestions/base', 'SuggestionController@getBaseSuggestion');
