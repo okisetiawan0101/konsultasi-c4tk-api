@@ -62,7 +62,8 @@ curl "http://tersebut.com/api/v1/threads/<thread_id>"
 			"maritalStatus": {
 				"id": "1",
 				"description": "Menikah"
-			}
+			},
+			"rating": "4.1"
 		},
 		"counselor": {
 			"id": "1",
@@ -206,7 +207,8 @@ curl "http://tersebut.com/api/v1/threads" \
 			"marital_status": {
 				"id": "1",
 				"description": "Menikah"
-			}
+			},
+			"rating": "4.1"
 		},
 		"counselor": {
 			"id": "1",
