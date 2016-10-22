@@ -2,9 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class User extends Model
+class User extends Authenticatable
 {
     protected $hidden = ['created_at', 'updated_at',
                         "village_id",
@@ -90,7 +92,6 @@ class User extends Model
         $user->name = $data['name'];
         $user->nick_name = $data['nick_name'];
         $user->email = $data['email'];
-        $user->password = $data['password'];
         $user->birth_date = $data['birth_date'];
         $user->birth_place = $data['birth_place'];
         $user->address = $data['address'];
@@ -137,11 +138,17 @@ class User extends Model
             return null;
         }
 
+        $user->rating = $this->getRating($userId);
+
         return $user;
     }
 
     public function login($email, $password)
     {
+        if(!(Auth::attempt(['email' => $email, 'password' => $password]))) {
+            return null;
+        }
+
         $user = $this->with("village.district.city.province")
                     ->with("gender")
                     ->with("occupation")
@@ -150,12 +157,13 @@ class User extends Model
                     ->with("avatar")
                     ->with("religion")
                     ->where('email', $email)
-                    ->where('password', bcrypt($password))
-                    ->get();
+                    ->first();
 
         if(!$user) {
             return null;
         }
+
+        $user->rating = $this->getRating($user->id);
 
         return $user;
     }
@@ -170,12 +178,23 @@ class User extends Model
                     ->with("avatar")
                     ->with("religion")
                     ->where('facebook_id', $facebookId)
-                    ->get();
+            ->first();
 
         if(!$user) {
             return null;
         }
 
+        $user->rating = $this->getRating($user->id);
+
         return $user;
+    }
+
+    private function getRating ($userId) {
+        $rating = DB::table("thread_user_ratings")
+                ->join('threads', 'threads.id', '=', 'thread_user_ratings.thread_id')
+                ->where('threads.user_id', $userId)
+                ->avg("rating");
+
+        return $rating;
     }
 }

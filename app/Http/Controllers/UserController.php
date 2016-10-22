@@ -19,7 +19,7 @@ class UserController extends Controller
         $this->user = $user;
     }
 
-    private function validator($data){
+    private function validatorStore($data){
         $validator = Validator::make($data, [
                 "name" => "required",
                 "nick_name" => "required",
@@ -37,6 +37,28 @@ class UserController extends Controller
                 "sinch_id" => "required",
                 "facebook_id" => "required|unique:users,facebook_id",
                 "avatar_id" => "required|exists:avatars,id"
+        ]);
+
+        return $validator;
+    }
+
+    private function validatorUpdate($id, $data){
+        $validator = Validator::make($data, [
+            "name" => "required",
+            "nick_name" => "required",
+            "email" => "required|unique:users,email,{$id},id",
+            "birth_date" => "required",
+            "birth_place" => "required",
+            "address" => "required",
+            "village_id" => "required|exists:villages,id",
+            "gender_id" => "required|exists:genders,id",
+            "occupation_id" => "required|exists:occupations,id",
+            "religion_id" => "required|exists:religions,id",
+            "education_id" => "required|exists:educations,id",
+            "marital_status_id" => "required|exists:marital_statuses,id",
+            "sinch_id" => "required",
+            "facebook_id" => "required|unique:users,facebook_id,{$id},id",
+            "avatar_id" => "required|exists:avatars,id"
         ]);
 
         return $validator;
@@ -79,7 +101,7 @@ class UserController extends Controller
                     "avatar_id",
                     "profile");
 
-        $validator = $this->validator($data);
+        $validator = $this->validatorStore($data);
 
         if($validator->fails()){
             return response()->json([
@@ -125,7 +147,6 @@ class UserController extends Controller
         $data = $request->only("name",
             "nick_name",
             "email",
-            "password",
             "birth_date",
             "birth_place",
             "address",
@@ -140,7 +161,7 @@ class UserController extends Controller
             "avatar_id",
             "profile");
 
-        $validator = $this->validator($data);
+        $validator = $this->validatorUpdate($id, $data);
 
         if($validator->fails()){
             return response()->json([
@@ -208,16 +229,6 @@ class UserController extends Controller
 
         $user = $this->user->login($data["email"], $data["password"]);
 
-        if(!$user)
-        {
-            return response()->json([
-                self::KEY_ERROR => [
-                    'code' => Response::HTTP_NOT_FOUND,
-                    'message' => 'User not found'
-                ]
-            ], Response::HTTP_NOT_FOUND);
-        }
-
         return response()->json([
             self::KEY_DATA=>$user
         ],Response::HTTP_CREATED);
@@ -239,16 +250,6 @@ class UserController extends Controller
         }
 
         $user = $this->user->loginByFB($data["facebookId"]);
-
-        if(!$user)
-        {
-            return response()->json([
-                self::KEY_ERROR => [
-                    'code' => Response::HTTP_NOT_FOUND,
-                    'message' => 'User not found'
-                ]
-            ], Response::HTTP_NOT_FOUND);
-        }
 
         return response()->json([
             self::KEY_DATA=>$user

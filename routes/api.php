@@ -18,12 +18,31 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::resource('users', 'UserController', ['except' => [
-    'create', 'edit', 'index'
+	'create', 'edit', 'index'
+]]);
+
+Route::resource('threads', 'ThreadController', ['only' => [
+	'store', 'show'
+]]);
+
+Route::patch('thread/{thread_id}/close','ThreadController@close');
+
+Route::patch('thread/{thread_id}/user-rating','ThreadController@giveUserRating');
+
+Route::patch('thread/{thread_id}/counselor-rating','ThreadController@giveCounselorRating');
+
+Route::resource('counselors', 'CounselorController', ['only' => [
+    'show', 'update'
 ]]);
 
 Route::post('/users/login', 'UserController@login');
+
+Route::post('/counselors/login', 'CounselorController@login');
 
 Route::post('/users/login-facebook', 'UserController@loginByFB');
 
 Route::get('/suggestions/base', 'SuggestionController@getBaseSuggestion');
 Route::get('/suggestions/{suggestionId}', 'SuggestionController@getSuggestion');
+
+
+Route::get('/users/{userId}/threads', 'ThreadController@getPaginateThreadsByUserId');
