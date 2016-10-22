@@ -174,6 +174,8 @@ class Thread extends Model {
 
 		$threads->map(function ($thread)
 		{
+			$thread->date = $this->created_at;
+
 			$thread->counselor->rating = $this->getRating($thread->counselor->id);
 			return $thread;
 		});

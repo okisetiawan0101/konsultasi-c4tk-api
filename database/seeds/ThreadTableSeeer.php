@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class ThreadTableSeeder extends Seeder {
 	/**
@@ -20,7 +21,8 @@ class ThreadTableSeeder extends Seeder {
 				'user_id' => 1,
 				'counselor_id' => 1,
 				'description' => 'aku galau kakak',
-				'is_done' => false
+				'is_done' => false,
+				'created_at' => Carbon::now()
 			],
 			[
 				'id' => 2,
@@ -29,7 +31,9 @@ class ThreadTableSeeder extends Seeder {
 				'user_id' => 1,
 				'counselor_id' => 1,
 				'description' => 'aku galau kakak',
-				'is_done' => true
+				'is_done' => true,
+				'created_at' => Carbon::now()
+
 			]
 		]);
 	}
