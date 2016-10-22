@@ -80,7 +80,7 @@ class ThreadController extends Controller {
 
 		return response()->json([
 			self::KEY_DATA => $response
-		], Response::HTTP_CREATED);
+		], Response::HTTP_OK);
 	}
 
 	public function store(Request $request)
