@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RumahCurhat\Http\Controllers;
 
-use App\Counselor;
+use RumahCurhat\Counselor;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use RumahCurhat\Http\Requests;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;

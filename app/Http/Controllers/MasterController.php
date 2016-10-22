@@ -6,22 +6,22 @@
  * Time: 06:47
  */
 
-namespace App\Http\Controllers;
+namespace RumahCurhat\Http\Controllers;
 
 
-use App\Avatar;
-use App\Category;
-use App\City;
-use App\ConsultationType;
-use App\District;
-use App\Education;
-use App\Gender;
-use App\Institution;
-use App\MaritalStatus;
-use App\Occupation;
-use App\Province;
-use App\Religion;
-use App\Village;
+use RumahCurhat\Avatar;
+use RumahCurhat\Category;
+use RumahCurhat\City;
+use RumahCurhat\ConsultationType;
+use RumahCurhat\District;
+use RumahCurhat\Education;
+use RumahCurhat\Gender;
+use RumahCurhat\Institution;
+use RumahCurhat\MaritalStatus;
+use RumahCurhat\Occupation;
+use RumahCurhat\Province;
+use RumahCurhat\Religion;
+use RumahCurhat\Village;
 use Illuminate\Http\Response;
 
 class MasterController extends Controller {

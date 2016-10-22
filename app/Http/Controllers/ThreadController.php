@@ -6,12 +6,12 @@
  * Time: 03:37
  */
 
-namespace App\Http\Controllers;
+namespace RumahCurhat\Http\Controllers;
 
 
-use App\Thread;
-use App\ThreadCounselorRating;
-use App\ThreadUserRating;
+use RumahCurhat\Thread;
+use RumahCurhat\ThreadCounselorRating;
+use RumahCurhat\ThreadUserRating;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;

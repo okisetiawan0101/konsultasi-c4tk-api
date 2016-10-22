@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace RumahCurhat;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace RumahCurhat;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;

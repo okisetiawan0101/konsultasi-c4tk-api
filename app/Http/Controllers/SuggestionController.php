@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RumahCurhat\Http\Controllers;
 
-use App\Suggestion;
+use RumahCurhat\Suggestion;
 use Illuminate\Http\Request;
 
 class SuggestionController extends Controller
