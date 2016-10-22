@@ -56,8 +56,8 @@ class CounselorController extends Controller
         if(!$counselor){
             return response()->json([
                 self::KEY_ERROR => [
-                    'code' => Response::HTTP_NOT_FOUND,
-                    'message' => 'Counselor not found'
+                    self::KEY_CODE => Response::HTTP_NOT_FOUND,
+                    self::KEY_MESSAGE => 'Counselor not found'
                 ]
             ], Response::HTTP_NOT_FOUND);
         }
@@ -91,8 +91,8 @@ class CounselorController extends Controller
         if($validator->fails()){
             return response()->json([
                 self::KEY_ERROR => [
-                    'code' => Response::HTTP_BAD_REQUEST,
-                    'message' => $validator->errors()->first()
+                    self::KEY_CODE => Response::HTTP_BAD_REQUEST,
+                    self::KEY_MESSAGE => $validator->errors()->first()
                 ]
             ], Response::HTTP_BAD_REQUEST);
         }
@@ -111,8 +111,8 @@ class CounselorController extends Controller
         if(!$response){
             return response()->json([
                 self::KEY_ERROR => [
-                    'code' => Response::HTTP_NOT_FOUND,
-                    'message' => 'Counselor not found'
+                    self::KEY_CODE => Response::HTTP_NOT_FOUND,
+                    self::KEY_MESSAGE => 'Counselor not found'
                 ]
             ], Response::HTTP_NOT_FOUND);
         }
@@ -132,8 +132,8 @@ class CounselorController extends Controller
         if($validator->fails()){
             return response()->json([
                 self::KEY_ERROR => [
-                    'code' => Response::HTTP_BAD_REQUEST,
-                    'message' => $validator->errors()->first()
+                    self::KEY_CODE => Response::HTTP_BAD_REQUEST,
+                    self::KEY_MESSAGE => $validator->errors()->first()
                 ]
             ], Response::HTTP_BAD_REQUEST);
         }

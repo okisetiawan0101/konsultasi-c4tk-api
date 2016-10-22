@@ -72,8 +72,8 @@ class ThreadController extends Controller {
 		{
 			return response()->json([
 				self::KEY_ERROR => [
-					'code' => Response::HTTP_NOT_FOUND,
-					'message' => 'Thread not found'
+					self::KEY_CODE => Response::HTTP_NOT_FOUND,
+					self::KEY_MESSAGE => 'Thread not found'
 				]
 			], Response::HTTP_NOT_FOUND);
 		}
@@ -100,8 +100,8 @@ class ThreadController extends Controller {
 		{
 			return response()->json([
 				self::KEY_ERROR => [
-					'code' => Response::HTTP_BAD_REQUEST,
-					'message' => $validator->errors()->first()
+					self::KEY_CODE => Response::HTTP_BAD_REQUEST,
+					self::KEY_MESSAGE => $validator->errors()->first()
 				]
 			], Response::HTTP_BAD_REQUEST);
 		}
@@ -127,8 +127,8 @@ class ThreadController extends Controller {
 		{
 			return response()->json([
 				self::KEY_ERROR => [
-					'code' => Response::HTTP_BAD_REQUEST,
-					'message' => $validator->errors()->first()
+					self::KEY_CODE => Response::HTTP_BAD_REQUEST,
+					self::KEY_MESSAGE => $validator->errors()->first()
 				]
 			], Response::HTTP_BAD_REQUEST);
 		}
@@ -154,8 +154,8 @@ class ThreadController extends Controller {
 		{
 			return response()->json([
 				self::KEY_ERROR => [
-					'code' => Response::HTTP_BAD_REQUEST,
-					'message' => $validator->errors()->first()
+					self::KEY_CODE => Response::HTTP_BAD_REQUEST,
+					self::KEY_MESSAGE => $validator->errors()->first()
 				]
 			], Response::HTTP_BAD_REQUEST);
 		}
@@ -181,8 +181,8 @@ class ThreadController extends Controller {
 		{
 			return response()->json([
 				self::KEY_ERROR => [
-					'code' => Response::HTTP_BAD_REQUEST,
-					'message' => $validator->errors()->first()
+					self::KEY_CODE => Response::HTTP_BAD_REQUEST,
+					self::KEY_MESSAGE => $validator->errors()->first()
 				]
 			], Response::HTTP_BAD_REQUEST);
 		}
@@ -210,7 +210,7 @@ class ThreadController extends Controller {
 
 	public function getPaginateHistoryThreadsByUserId($userId)
 	{
-		$threads = $this->thread->getPaginateHistoryThreadsByUserId ($userId);
+		$threads = $this->thread->getPaginateHistoryThreadsByUserId($userId);
 
 		return response()->json([
 			self::KEY_DATA => $threads
