@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class City extends Model {
 	public $incrementing = false;
-	protected $hidden = ['created_at', 'updated_at'];
+	protected $hidden = ['created_at', 'updated_at', 'province_id'];
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany

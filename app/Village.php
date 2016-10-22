@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Village extends Model {
 	public $incrementing = false;
-	protected $hidden = ['created_at', 'updated_at'];
+	protected $hidden = ['created_at', 'updated_at', 'district_id'];
 
 	public function district()
 	{
