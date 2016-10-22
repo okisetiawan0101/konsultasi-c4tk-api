@@ -85,7 +85,7 @@ class SuggestionSeeder extends Seeder {
 				"id" => 13,
 				"description" => "bertengkar dengan orang tua",
 				"parent_id" => 1,
-				"urgent_rating" => "1"
+				"urgent_rating" => "5"
 			],
 			[
 				"id" => 14,
