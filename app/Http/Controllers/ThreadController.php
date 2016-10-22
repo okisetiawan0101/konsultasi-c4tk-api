@@ -207,4 +207,13 @@ class ThreadController extends Controller {
 			self::KEY_DATA => $threads
 		], Response::HTTP_OK);
 	}
+
+	public function getPaginateHistoryThreadsByUserId($userId)
+	{
+		$threads = $this->thread->getPaginateHistoryThreadsByUserId ($userId);
+
+		return response()->json([
+			self::KEY_DATA => $threads
+		], Response::HTTP_OK);
+	}
 }

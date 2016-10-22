@@ -71,3 +71,5 @@ Route::get('/consultation-types', 'MasterController@showConsultationTypes');
 Route::get('/institutions', 'MasterController@showInstitutions');
 
 Route::get('/users/{userId}/threads', 'ThreadController@getPaginateThreadsByUserId');
+
+Route::get('/users/{userId}/history-threads', 'ThreadController@getPaginateHistoryThreadsByUserId');

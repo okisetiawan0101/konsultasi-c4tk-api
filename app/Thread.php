@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Thread extends Model {
 	protected $hidden = ['created_at', 'updated_at', 'category_id', 'consultation_type_id', 'user_id', 'counselor_id', 'is_done'];
@@ -123,11 +124,72 @@ class Thread extends Model {
 			}])
 			->with('suggestion')
 			->where('is_done', 0)
-			->where('user_id', $userId)
-			->paginate(15);
+			->where('user_id', $userId)->paginate(15);
 
+		$threads->map(function ($thread)
+		{
+			$thread->counselor->rating = $this->getRating($thread->counselor->id);
+			return $thread;
+		});
 		return $threads;
 	}
+
+	public function getPaginateHistoryThreadsByUserId($userId)
+	{
+		$threads = $this
+			->with('category')
+			->with('consultationType')
+			->with(['user' => function ($user)
+			{
+				$user->with(['village' => function ($village)
+				{
+					$village->with(['district' => function ($district)
+					{
+						$district->with(['city' => function ($city)
+						{
+							$city->with('province');
+						}]);
+					}]);
+				}])->with('gender')
+					->with('occupation')
+					->with('education')
+					->with('maritalStatus');
+			}])
+			->with(['counselor' => function ($counselor)
+			{
+				$counselor->with(['village' => function ($village)
+				{
+					$village->with(['district' => function ($district)
+					{
+						$district->with(['city' => function ($city)
+						{
+							$city->with('province');
+						}]);
+					}]);
+				}]);
+			}])
+			->with('suggestion')
+			->where('is_done', 1)
+			->where('user_id', $userId)->paginate(15);
+
+		$threads->map(function ($thread)
+		{
+			$thread->counselor->rating = $this->getRating($thread->counselor->id);
+			return $thread;
+		});
+		return $threads;
+	}
+
+	private function getRating($userId)
+	{
+		$rating = DB::table("thread_user_ratings")
+			->join('threads', 'threads.id', '=', 'thread_user_ratings.thread_id')
+			->where('threads.user_id', $userId)
+			->avg("rating");
+
+		return $rating;
+	}
+
 
 	public function storeThread(array $data)
 	{
