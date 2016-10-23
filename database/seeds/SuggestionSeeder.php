@@ -273,7 +273,7 @@ class SuggestionSeeder extends Seeder {
 	{
 		DB::table('suggestion_counselor')->delete();
 
-		for ($i = 37; $i <= 64; $i++) {
+		for ($i = 9; $i <= 64; $i++) {
 			DB::table('suggestion_counselor')->insert([
 				[
 					"suggestion_id" => $i,
